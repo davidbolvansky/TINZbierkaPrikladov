@@ -3,6 +3,9 @@
 \usepackage[slovak]{babel}
 \usepackage{graphicx}
 \usepackage{float}
+\usepackage{mathtools}
+\usepackage{amsfonts}
+\usepackage{tikz}
 
 \newcommand\ImageItem[2][]{%
 	\hfill\raisebox{\dimexpr-\height+\baselineskip}{\includegraphics[#1]{#2}}\hfill~}
@@ -126,17 +129,85 @@
 
 	\section{Algoritmy}
 	
-	\begin{figure}[H]
-		\includegraphics[width=\textwidth]{tasks/algoritmy/task1.png}
-	\end{figure}
-	
-	\begin{figure}[H]
-		\includegraphics[width=\textwidth]{tasks/algoritmy/task2.png}
-	\end{figure}
-	
-	\begin{figure}[H]
-		\includegraphics[width=\textwidth]{tasks/algoritmy/task3.png}
-	\end{figure}
+	\begin{enumerate}
+		\item Riadny termín skúšky 2016
+		
+		Definujte sústavu rovníc nad regulárnymi výrazmi v štandardnom tvare. Ďalej uvažujte obecnú lineárnu gramatiku $G$. Popíšte formálne algoritmus nájdenia regulárneho výrazu $R$ takého, že $L(G) = L(R)$, bez toho, aby bolo potrebné ku gramatike $G$ vytvárať ekvivalentný konečný automat a/alebo gramatiku $G$ transformovať. Algoritmus nájdenia regulárneho výrazu ilustrujte na príklade netriviálnej (s rekurziou, aspoň 2 nonterminály a 4 pravidla) pravej lineárnej gramatiky $G$, ktorá nie je regulárna.
+		
+		\item Riadny termín skúšky 2017
+		
+		Zapíšte algoritmus (vrátane výpočtu množiny neterminálov $N_t = \{ A \mid A \xRightarrow{}^+ \varepsilon\}$), ktorý danú bezkontextovú gramatiku transformuje na jazykovo ekvivalentnú bezkontextovú gramatiku bez epsilon pravidiel.
+		
+		\item 1. opravný termín skúšky 2017
+		
+		Formálne definujte pojem $\varepsilon$-uzáver stavu RKA (rozšíreného konečného automatu, tj. nedeterministického automatu s $\varepsilon$ pravidlami) a formálne zapíšte algoritmus, ktorý v polynomiálnom čase prevedie vstupný RKA na nedeterministický konečný automat bez $\varepsilon$ prechodov (NKA). Ďalej uvažujte nasledujúci RKA $A$:
+		
+		\begin{center}
+			\begin{tikzpicture}[scale=0.2]
+			\tikzstyle{every node}+=[inner sep=0pt]
+			\draw [black] (18.3,-32.8) circle (3);
+			\draw (18.3,-32.8) node {$p$};
+			\draw [black] (28.9,-32.8) circle (3);
+			\draw (28.9,-32.8) node {$q$};
+			\draw [black] (39.9,-32.8) circle (3);
+			\draw (39.9,-32.8) node {$s$};
+			\draw [black] (39.9,-32.8) circle (2.4);
+			\draw [black] (29.7,-45.3) circle (3);
+			\draw (29.7,-45.3) node {$r$};
+			\draw [black] (11.2,-32.8) -- (15.3,-32.8);
+			\fill [black] (15.3,-32.8) -- (14.5,-32.3) -- (14.5,-33.3);
+			\draw [black] (21.3,-32.8) -- (25.9,-32.8);
+			\fill [black] (25.9,-32.8) -- (25.1,-32.3) -- (25.1,-33.3);
+			\draw (23.6,-32.3) node [above] {$a$};
+			\draw [black] (37.437,-34.48) arc (-66.83172:-113.16828:7.72);
+			\fill [black] (37.44,-34.48) -- (36.51,-34.34) -- (36.9,-35.25);
+			\draw (34.4,-35.6) node [below] {$b$};
+			\draw [black] (31.132,-30.831) arc (118.76404:61.23596:6.792);
+			\fill [black] (31.13,-30.83) -- (32.07,-30.88) -- (31.59,-30.01);
+			\draw (34.4,-29.49) node [above] {$\varepsilon$};
+			\draw [black] (31.6,-42.98) -- (38,-35.12);
+			\fill [black] (38,-35.12) -- (37.11,-35.43) -- (37.88,-36.06);
+			\draw (35.36,-40.48) node [right] {$\varepsilon$};
+			\draw [black] (20.32,-35.02) -- (27.68,-43.08);
+			\fill [black] (27.68,-43.08) -- (27.51,-42.16) -- (26.77,-42.83);
+			\draw (23.46,-40.51) node [left] {$\varepsilon$};
+			\end{tikzpicture}
+		\end{center}
+		
+		Pomocou zapísaného algoritmu preveďte $A$ na jazykovo ekvivalentný NKA (t.j. bez $\varepsilon$ prechodov).
+		
+		\item 2. opravný termín skúšky 2017, Riadny termín skúšky 2018
+		
+		Zapíšte algoritmus, ktorý daný nedeterministický konečný automat bez $\varepsilon$ prechodov prevedie na jazykovo ekvivalentný konečný automat. Algoritmus demonštrujte na automatu uvedenom nižšie.
+		
+		\begin{center}
+			\begin{tikzpicture}[scale=0.2]
+			\tikzstyle{every node}+=[inner sep=0pt]
+			\draw [black] (18.3,-32.8) circle (3);
+			\draw (18.3,-32.8) node {$1$};
+			\draw [black] (28.6,-32.8) circle (3);
+			\draw (28.6,-32.8) node {$2$};
+			\draw [black] (28.6,-32.8) circle (2.4);
+			\draw [black] (38.4,-32.8) circle (3);
+			\draw (38.4,-32.8) node {$3$};
+			\draw [black] (38.4,-32.8) circle (2.4);
+			\draw [black] (11.2,-32.8) -- (15.3,-32.8);
+			\fill [black] (15.3,-32.8) -- (14.5,-32.3) -- (14.5,-33.3);
+			\draw [black] (16.977,-30.12) arc (234:-54:2.25);
+			\draw (18.3,-25.55) node [above] {$a,b$};
+			\fill [black] (19.62,-30.12) -- (20.5,-29.77) -- (19.69,-29.18);
+			\draw [black] (21.3,-32.8) -- (25.6,-32.8);
+			\fill [black] (25.6,-32.8) -- (24.8,-32.3) -- (24.8,-33.3);
+			\draw (23.45,-32.3) node [above] {$a$};
+			\draw [black] (31.6,-32.8) -- (35.4,-32.8);
+			\fill [black] (35.4,-32.8) -- (34.6,-32.3) -- (34.6,-33.3);
+			\draw (33.5,-32.3) node [above] {$b$};
+			\draw [black] (37.077,-30.12) arc (234:-54:2.25);
+			\draw (38.4,-25.55) node [above] {$a,b$};
+			\fill [black] (39.72,-30.12) -- (40.6,-29.77) -- (39.79,-29.18);
+			\end{tikzpicture}
+		\end{center}
+	\end{enumerate}
 	
 	\section{Uzáverové vlastnosti}
 	
@@ -169,54 +240,58 @@
 
 	\section{Turingove stroje}
 	
-	Definicia prechodovej funkcie NTS, retazec prijimany TS, jazyk prijimany TS. TS zadaný prechodovou funkciou mal na vstupu $\Delta$abca$\Delta^{w}$ a bylo třeba doplnit 4 pravidla tak, aby výstup byl $\Delta$acba$\Delta^{w}$.
-	
-	\begin{figure}[H]
-		\includegraphics[width=\textwidth]{tasks/ts/task1.png}
-	\end{figure}
+	\begin{enumerate}
+		\item 2. priebežný test 2017
+		
+		Definujte prechodovú funkciu NTS, reťazec prijímaný TS, jazyk prijímaný TS. TS zadaný prechodovou funkciou má na vstupu $\Delta$abca$\Delta^{w}$. Doplňte 4 pravidlá tak, aby výstup bol $\Delta$acba$\Delta^w$.
+		
+		\item 2. priebežný test 2018
+		
+		Pre deterministický Turingov stroj $M = (Q, \Sigma, \Gamma, \sigma, q_0, q_f)$ formálne definujte tvar prechodovej funkcie $\sigma$, konfiguráciu stroja $M$ a reláciu prechodu $\vdash_M$ medzi konfiguráciami.
+		
+		\item 2. priebežný test 2018
+		
+		Zostrojte a formálne zapíšte deterministický Turingov stroj $M$ o najviac 4 stavoch a 4 prechodoch tak, aby platilo $(q_0, \Delta a^i\Delta^w, 0) {\vdash^*}_M (q_f, \Delta b^i\Delta^w, n)$, kde i,n $\geq$ 0.
+	\end{enumerate}
 
-	\begin{figure}[H]
-		\includegraphics[width=\textwidth]{tasks/ts/task2.png}
-	\end{figure}
 	
 	\section{Diagonalizácia}
 	
-	\begin{figure}[H]
-		\includegraphics[width=\textwidth]{tasks/diagonalizacia/task1.png}
-	\end{figure}
-
-	\begin{figure}[H]
-		\includegraphics[width=\textwidth]{tasks/diagonalizacia/task2.png}
-	\end{figure}
+	\begin{enumerate}
+		\item 1. opravný termín skúšky 2017
+		
+		Pomocou techniky diagonalizácie dokážte, že existuje jazyk, ktorý nie je rekurzívne vyčísliteľný.
+		\item Riadny termín skúšky 2016
+		
+		Dokážte, že existuje totálna funkcia $f: \mathbb{N} \rightarrow \mathbb{N}$, ktorá nie je primitívne rekurzívna.
+		
+	\end{enumerate}
 	
 	\section{Redukcie, rekurzívne a rekurzívne vyčísliteľné jazyky}
-	
-	\begin{figure}[H]
-		\includegraphics[width=\textwidth]{tasks/redukcie/task1.png}
-	\end{figure}
-
-	\begin{figure}[H]
-		\includegraphics[width=\textwidth]{tasks/redukcie/task2.png}
-	\end{figure}
-	
-	\begin{figure}[H]
-		\includegraphics[width=\textwidth]{tasks/redukcie/task3.png}
-	\end{figure}
+	\begin{enumerate}
+		\item Riadny termín skúšky 2017
+		
+		Formálne definujte pojem redukcie jazyka $L_1$ na jazyk $L_2$ a zapíšte príslušné tvrdenia (implikácie) pre určovanie rozhodnuteľnosti resp. nerozhodnuteľnosti jazykov.
+		
+		\item Riadny termín skúšky 2017
+		
+		Rozhodnete a dokážte, či sú rekurzívne vyčísliteľné jazyky uzavreného vzhľadom k operácii pozitívna iterácia +.
+		
+		\item Riadny termín skúšky 2017
+		
+		Rozhodnite a dokážte, či existuje rekurzívne vyčísliteľný jazyk $L_1$ a rekurzívny jazyk $L_2$, pre ktoré platí $L_2 \leq L_2$ (tj. $L_1$ sa redukuje na $L_2$).
+		
+		\item 1. opravný termín skúšky 2017
+		
+		Rozhodnite a dokážte, či existuje jazyk $L$, ktorý nie je rekurzívny, ale je rekurzívne vyčísliteľný, a jeho doplnok $\overline{L}$ je tiež rekurzívne vyčísliteľný.
+	\end{enumerate}
 	
 	\begin{figure}[H]
 		\includegraphics[width=\textwidth]{tasks/redukcie/task4.png}
 	\end{figure}
 
 	\begin{figure}[H]
-		\includegraphics[width=\textwidth]{tasks/redukcie/task5.png}
-	\end{figure}
-
-	\begin{figure}[H]
 		\includegraphics[width=\textwidth]{tasks/redukcie/task6.png}
-	\end{figure}
-
-	\begin{figure}[H]
-		\includegraphics[width=\textwidth]{tasks/redukcie/task7.png}
 	\end{figure}
 	
 	\begin{figure}[H]
@@ -225,33 +300,50 @@
 	
 	\section{Zložitosť}
 	
-	\begin{figure}[H]
-		\includegraphics[width=\textwidth]{tasks/zlozitost/task1.png}
-	\end{figure}
-
-	\begin{figure}[H]
-		\includegraphics[width=\textwidth]{tasks/zlozitost/task2.png}
-	\end{figure}
-
-	\begin{figure}[H]
-		\includegraphics[width=\textwidth]{tasks/zlozitost/task3.png}
-	\end{figure}
+	\begin{enumerate}
+		\item Riadny termín skúšky 2017
+		
+		Definujte formálne časovú zložitosť Turingových strojov a triedu jazykov $DTIME[n^5]$.
+		
+		\item Riadny termín skúšky 2017
+		
+		Rozhodnite a dokážte, či platí:
+		
+		$n^3 \in \mathcal{O}(10n^2 + 100)$
+		
+		$10n^2 + 100 \in \mathcal{O}(n^3)$
+		
+		\item Riadny termín skúšky 2017
+		
+		Rozhodnite a dokážte, či platí:
+		
+		$L_1, L_2 \in DTIME[n^3] \xRightarrow[]{} \{ uv \mid u \in  L_1 \land v \in L_2\} \in NTIME[n^3]$
+		
+		\item 1. opravný termín skúšky 2017
+		
+		Definujte formálne:
+		
+		\begin{itemize}
+			\item pre funkciu $f: \mathbb{N} \rightarrow \mathbb{N}$ množinu $\mathcal{O}(f(n))$
+			\item priestorovú zložitosť nedeterministických Turingových strojov
+		\end{itemize}
 	
-	\begin{figure}[H]
-		\includegraphics[width=\textwidth]{tasks/zlozitost/task4.png}
-	\end{figure}
-
-	\begin{figure}[H]
-		\includegraphics[width=\textwidth]{tasks/zlozitost/task5.png}
-	\end{figure}
-
-	\begin{figure}[H]
-		\includegraphics[width=\textwidth]{tasks/zlozitost/task6.png}
-	\end{figure}
-	
-	\begin{figure}[H]
-		\includegraphics[width=\textwidth]{tasks/zlozitost/task7.png}
-	\end{figure}
+		\item 1. opravný termín termín skúšky 2017
+		
+		Rozhodnite a dokážte, či platí:
+		
+		$L \in DTIME[n^4] \xRightarrow[]{} \{ u_1, u_2 \ldots u_k \mid k \geq 1, \forall 1 \leq i \leq k: u_i \in L\} \in NTIME[n^4]$
+		
+		\item Riadny termín skúšky 2018
+		
+		Formálne definujte:
+		
+		\begin{itemize}
+			\item priestorovú zložitosť nedeterministických Turingových strojov, ktorý prijíma jazyk $L$
+			\item asymptotické horné obmedzenie funkcie $f: \mathbb{N} \rightarrow \mathbb{N}$ (tj. $\mathcal{O}(f(n))$
+			\item triedu jazykov $NSPACE[2^n]$
+		\end{itemize}
+	\end{enumerate}
 
 	\section{NP problémy, polynomiálna redukcia}
 	

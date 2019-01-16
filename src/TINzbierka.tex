@@ -441,9 +441,14 @@
 		\item 1. opravný termín skúšky 2017
 		
 		Pomocou techniky diagonalizácie dokážte, že existuje jazyk, ktorý nie je rekurzívne vyčísliteľný.
+		
 		\item Riadny termín skúšky 2016
 		
 		Dokážte, že existuje totálna funkcia $f: \mathbb{N} \rightarrow \mathbb{N}$, ktorá nie je primitívne rekurzívna.
+		
+		\item 1. opravný termín skúšky 2016
+		
+		Diagonalizáciou dokážte, že existuje jazyk, ktorý nie je kontextový, ale je rekurzívny.
 		
 	\end{enumerate}
 	
@@ -470,9 +475,24 @@
 		Rozhodnite a dokážte, či jazyk:
 		
 		$L_1 = \{\langle M \rangle \mid \exists w \in \Sigma^*$ také, že $M$ zastaví na $w\}$ je rekurzívny
+		
 		$L_2 = \{\langle M \rangle \mid \exists w \in \Sigma^*$ také, že $M$ nezastaví na $w$ behom 17 krokov$\}$ je rekurzívne vyčísliteľný
 	
 		$\langle M \rangle$ označuje kód Turingovho stroja so vstupnou abecedou $\Sigma$
+		
+		\item 1. opravný termín skúšky 2016
+		
+		Rozhodnite a dokážte, či jazyk:
+		
+		$L_1 = \{\langle M \rangle \mid \forall w \in \Sigma^*$ také, že $M$ nezastaví na $w\}$ je rekurzívny
+		
+		$L_2 = \{\langle M \rangle \mid \forall w \in \Sigma^*$ také, že $M$ zastaví na $w$ behom 17 krokov$\}$ je rekurzívne vyčísliteľný
+		
+		$\langle M \rangle$ označuje kód Turingovho stroja so vstupnou abecedou $\Sigma$
+		
+		\item 1. opravný termín skúšky 2016
+		
+		Uveďte jazyk, ktorý je rekurzívne vyčísliteľný, ale nie je rekurzívny, a jeho komplement je tiež rekurzívne vyčísliteľný.
 		
 		\item Riadny termín skúšky 2017
 		
@@ -516,6 +536,16 @@
 	\section{Zložitosť}
 	
 	\begin{enumerate}
+		\item Riadny termín skúšky 2016
+		
+		Rozhodnite a dokážte, či platí:
+		
+		$n^3 \notin \mathcal{O}(n^2)$
+		
+		$2n^n + 2n + n \in \mathcal{O}(n^2 - 2n - 2)$
+		
+		$\{a^nb^nc^n \mid n \geq 0\} \in DTIME[n]$
+		
 		\item Riadny termín skúšky 2017
 		
 		Definujte formálne časovú zložitosť Turingových strojov a triedu jazykov $DTIME[n^5]$.

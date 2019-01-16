@@ -227,29 +227,48 @@
 	\end{enumerate}
 	
 	\section{Uzáverové vlastnosti}
-	
-	Definujte uzavretosť triedy jazykov. Uveďte dôkaz neuzavretosti deterministických bezkontextových jazykov na operácie prienik a zjednotenie. Dokážte, že zadaná binárna relácia je uzavrená:
-	
-	$L_1 \circ L_2 = \{uv \mid u \in L_1 \land v \in L_2 \land \vert uv \vert \leq 5\}$.
-	
-	\begin{figure}[H]
-		\includegraphics[width=\textwidth]{tasks/vlastnosti/task1.png}
-	\end{figure}
-
-	\begin{figure}[H]
-		\includegraphics[width=\textwidth]{tasks/vlastnosti/task2.png}
-	\end{figure}
-	
-	\begin{figure}[H]
-		\includegraphics[width=\textwidth]{tasks/vlastnosti/task3.png}
-	\end{figure}
-
-
-	\begin{figure}[H]
-		\includegraphics[width=\textwidth]{tasks/vlastnosti/task4.png}
-	\end{figure}
-
 	\begin{enumerate}
+		\item 2. priebežný test 2018
+	
+		Rozhodnite a dokážte, či platia nasledujúce tvrdenia ($\mathcal{L}_2$ značí triedu všetkých bezkontextových jazykov a $\mathcal{L}_3$ značí triedu regulárnych jazykov):
+		
+		\begin{itemize}
+			\item $\exists L_1 \in \mathcal{L}_2: \forall L_2 \in \mathcal{L}_2: L_1 \cap L_2 \in \mathcal{L}_2$
+			
+			\item $\exists L_1 \in \mathcal{L}_2 \setminus \mathcal{L}_3: \forall L_2 \in \mathcal{L}_3: L_1 \cap L_2 \in \mathcal{L}_3$
+			
+			\item Trieda bezkontextových jazykov nad abecedou $\Sigma = \{a,b\}$ je uzavrená vzhľadom k binárnej operácii $\circ$ definovanej nasledovne:
+			
+			$L_1 \circ L_2 = \{w \in \Sigma^* \mid (w \in L_1 \land w \in L_2) \lor \vert w \vert > 1\}$
+		\end{itemize}
+
+		\item Riadny termín skúšky 2017
+	
+		Rozhodnite a dokážte, či pre jazyky nad abecedou $\Sigma$ platí:
+		
+		$\forall L_1 \in \mathcal{L}_3: \exists L_2 \in \mathcal{L}_2 \setminus \mathcal{L}_3: L_1 \cap L_2 \in \mathcal{L}_3$
+			
+		kde $\mathcal{L}_3$ a $\mathcal{L}_2$ značia triedu regulárnych resp. bezkontextových jazykov.
+	
+		\item 1. opravný termín skúšky 2017
+	
+		Rozhodnite a dokážte, či pre jazyky nad abecedou $\Sigma = \{a,b,c\}$ platí:
+		
+		\begin{itemize}
+			\item $\forall L \in \mathcal{L}_3: \vert L \vert = \infty \rightarrow \Diamond L \in  \mathcal{L}_2$
+			\item $\forall L \in \mathcal{L}_3: \vert L \vert = \infty \rightarrow \Diamond L \in  \mathcal{L}_2 \setminus \mathcal{L}_3$
+		\end{itemize}	
+	
+		kde $\Diamond L = \{w \in L \mid \#_a(w) + \#_b(w) = \#_c(w)\}$
+
+		\item 1. opravný termín skúšky 2017
+	
+		Rozhodnite a dokážte, či pre jazyky nad abecedou $\Sigma$ platí:
+		
+		$\forall L_1 \in \mathcal{L}_3: \exists L_2 \in \mathcal{L}_2 \setminus \mathcal{L}_3: L_1 \cup L_2 \in \mathcal{L}_3$
+		
+		$\mathcal{L}_3$ a $\mathcal{L}_2$ značia triedu regulárnych resp. bezkontextových jazykov.
+	
 		\item Riadny termín skúšky 2018
 		
 		Nech $\mathcal{L}_{CK}$ značí triedu co-konečných jazykov, ktorých komplement je konečný. Rozhodnite a dokážte, či platí:
@@ -337,6 +356,24 @@
 		$L_2 = \{\langle M \rangle \mid M$ je Turingov stroj taký, že $\vert L(M) \vert \geq 3\}$ je rekurzívne vyčísliteľný
 		
 		Poznámka: $\langle M \rangle$ označuje kód Turingovho stroja $M$.
+		
+		\item Riadny termín skúšky 2018
+		
+		Definujte triedu rekurzívnych a rekurzívne vyčísliteľných jazykov. Ďalej pre každú triedu uveďte jazyk, ktorý do danej triedy patrí, a jazyk, ktorý do triedy nepatrí.
+		
+		\item Riadny termín skúšky 2018
+		
+		Definujte jazyk $L_{HP}$, ktorý špecifikuje problém zastavenia. Ďalej rozhodnite a dokážte, či existuje rekurzívny jazyk $L$, pre ktorý platí, že $L \leq L_{HP}$ (tj. $L$ sa redukuje na $L_{HP}$).
+		
+		\item Riadny termín skúšky 2018
+		
+		Pre abecedu $\Sigma = \{a, b\}$ rozhodnite a dokážte, či:
+		
+		$L_1 = \{\langle M \rangle \mid M$ je Turingov stroj taký, že $\vert L(M) \vert  > \vert \Sigma \vert\}$ je rekurzívny
+		
+		$L_2 = \{\langle M \rangle \mid M$ je Turingov stroj, pre ktorý platí, že $\exists w \in L(M) : \vert w \vert > \vert \langle M \rangle \vert\}$ je rekurzívne vyčísliteľný
+		
+		Poznámka: $\langle M \rangle$ označuje reťazec, ktorý kóduje Turingov stroj $M$. V dôkazoch stačí uviesť hlavnú myšlienku redukcie či konštrukcie požadovaného Turingovho stroja.
 	\end{enumerate}
 	
 	\section{Zložitosť}
@@ -384,6 +421,12 @@
 			\item asymptotické horné obmedzenie funkcie $f: \mathbb{N} \rightarrow \mathbb{N}$ (tj. $\mathcal{O}(f(n))$
 			\item triedu jazykov $NSPACE[2^n]$
 		\end{itemize}
+	
+		\item Riadny termín skúšky 2018
+		
+		Pre $\Sigma = \{a,b,c\}$ rozhodnite a dokážte, či platí:
+		
+		$L \in DTIME[n^5] \xRightarrow[]{} \{ w \in \Sigma^* \mid \exists w' \in L$ také, že $w'$ je podslovo slova $w\} \in DTIME[n^7]$
 	\end{enumerate}
 
 	\section{NP problémy, polynomiálna redukcia}

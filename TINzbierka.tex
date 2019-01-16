@@ -6,7 +6,17 @@
 \usepackage{mathtools}
 \usepackage{amsfonts}
 \usepackage{tikz}
+\usepackage{hyperref}
+
 \usetikzlibrary{arrows,shapes,automata,petri,positioning}
+
+\hypersetup{
+	colorlinks,
+	citecolor=black,
+	filecolor=black,
+	linkcolor=black,
+	urlcolor=black
+}
 
 \tikzset{
 	place/.style={
@@ -49,46 +59,123 @@
 	\end{enumerate}
 
 	\section{Regulárne jazyky}
-	
-	\begin{figure}[H]
-		\includegraphics[width=\textwidth]{tasks/regularne/task1.png}
-	\end{figure}
-	
-	\begin{figure}[H]
-		\includegraphics[width=\textwidth]{tasks/regularne/task2.png}
-	\end{figure}
-	
-	\begin{figure}[H]
-		\includegraphics[width=\textwidth]{tasks/regularne/task3.png}
-	\end{figure}
-	
-	\begin{figure}[H]
-		\includegraphics[width=\textwidth]{tasks/regularne/task4.png}
-	\end{figure}
-	
-	\begin{figure}[H]
-		\includegraphics[width=\textwidth]{tasks/regularne/task5.png}
-	\end{figure}
-	
-	\begin{figure}[H]
-		\includegraphics[width=\textwidth]{tasks/regularne/task6.png}
-	\end{figure}
-	
-	\begin{figure}[H]
-		\includegraphics[width=\textwidth]{tasks/regularne/task7.png}
-	\end{figure}
-	
-	\begin{figure}[H]
-		\includegraphics[width=\textwidth]{tasks/regularne/task8.png}
-	\end{figure}
-	
-	\begin{figure}[H]
-		\includegraphics[width=\textwidth]{tasks/regularne/task9.png}
-	\end{figure}
+	\begin{enumerate}
+		\item 1. priebežný test 2018
+		
+		Pre deterministický konečný automat $A = (\{q_0,q_1,q_2,q_3\}, \{a,b,c\}, \delta, q_0, \{q_3\})$, kde $\delta$ je definovaná ako:
+		
+		$\delta(q_0, a) = q_1$ \hspace{10pt} $\delta(q_0, b) = q_0$ \hspace{10pt} $\delta(q_0, c) = q_0$
+		
+		$\delta(q_1, a) = q_2$ \hspace{10pt} $\delta(q_1, b) = q_0$ \hspace{10pt} $\delta(q_1, c) = q_0$
+		
+		$\delta(q_2, a) = q_2$ \hspace{10pt} $\delta(q_2, b) = q_3$ \hspace{10pt} $\delta(q_2, c) = q_0$
+		
+		$\delta(q_3, a) = q_3$ \hspace{10pt} $\delta(q_3, b) = q_3$ \hspace{10pt} $\delta(q_3, c) = q_3$
+		
+		zapíšte jazyk $L(A)$ v~tvare regulárneho výrazu. Ďalej zostrojte pravú lineárnu gramatiku $G$, pre ktorú platí, že $L(G) = L(A)$.
+		
+		\item 1. priebežný test 2018
+		
+		Uvážme nasledujúci problém $P$: pre nedeterministický konečný automat $A = (Q, \Sigma, \delta, q_0, F)$ rozhodnite, či je jazyk $L(A)$ nekonečný.
+		
+		\begin{itemize}
+			\item Zapíšte stručne hlavnú myšlienku algoritmu, ktorý rieši problém $P$.
+			\item Na základe prechodovej funkcie $\delta$ zapíšte formálne reláciu $R_\delta \subseteq Q \times Q$, ktorá popisuje, či je v~automate $A$ možný (priamy) medzi danou dvojicou stavov ($p,q$). Na základe tejto relácie a ich uzáveru zapíšte predikát, ktorý rozhoduje problém $P$.
+			\item Demonštrujte použitie tohto predikátu na automatu $A = (\{q_0,q_1,q_2\}, \{a\}, \delta, q_0, \{q_2\})$, kde $\delta$ je definovaná ako:
+			
+			$\delta(q_0, a) = \{q_1, q_2\})$
+			
+			$\delta(q_1, a) = \{q_1, q_2\})$
+			
+			$\delta(q_2, a) = \emptyset)$
+		\end{itemize}
+		
+		\item Riadny termín skúšky 2017
+		
+		Formálne definujte nedeterministický konečný automat, jeho konfiguráciu, reláciu prechodu medzi konfiguráciami a jazyk prijímaný týmto automatom.
+		
+		\item Riadny termín skúšky 2017
+		
+		Rozhodnite a dokážte, či jazyk
+		
+		$L = \{w \in \{a,b,c\}^* \mid \#_a(w)$ mod $2 = \#_b(w)$ mod $2\}$
+		
+		kde $\#_x(w)$ označuje počet znakov $x$ v~reťazci $w$ a $mod$ značí operáciu modulo, je regulárny.
+		
+		Poznámka: Pri dokazovaní, že je jazyk regulárny, stačí uviesť odpovedajúcu gramatiku alebo automat. Pri dokazovaní, že jazyk nie je regulárny, použite Pumping Lemma.
+		
+		\item Riadny termín skúšky 2017
+		
+		Formálne zapíšte obecný tvar sústavy rovníc nad regulárnymi výrazmi v~štandardnom tvare. Ďalej uvažujte jazyk generovaný gramatikou $G = (\{X,Y\}, \{x,y\}, P, X)$, kde $P$ je tvorená pravidlami:
+		
+		$X \rightarrow xyX \mid xxY \mid \varepsilon$
+		
+		$Y \rightarrow yY \mid x$
+		
+		Zostavením príslušnej sústavy rovníc nad regulárnymi výrazmi vo štandardnom tvare a jej riešením vyjadrite jazyk $L(G)$.
+		
+		Poznámka: Preferované riešenie neprevádza $G$ na ekvivalentný konečný automat.
+		
+		\item 1. opravný termín skúšky 2017
+		
+		Rozhodnite a dokážte, či jazyk
+		
+		$L = \{w \in \{a,b,c\}^* \mid \#_a(w) + \#_b(w) =  \#_c(w) \lor \#_c(w) \geq 2\}$
+		
+		kde $\#_x(w)$ označuje počet znakov $x$ v~reťazci $w$, je regulárny.
+		
+		Poznámka: Pri dokazovaní, že je jazyk regulárny, stačí uviesť odpovedajúcu gramatiku alebo automat. Pri dokazovaní, že jazyk nie je regulárny, použite Pumping Lemma.
+		
+		\item 2. opravný termín skúšky 2017
+		
+		Rozhodnite a dokážte, či nasledujúci jazyk je regulárny.
+		
+		$L = \{w \in \{a,b,c\}^* \mid \#_a(w) = \#_b(w) \land \#_b(w) \leq 2\}$
+		
+		Poznámka: $\#_x(w)$ označuje počet znakov $x$ v~reťazci $w$. Pri dokazovaní, že je jazyk regulárny, stačí uviesť odpovedajúcu gramatiku alebo automat. Pri dokazovaní, že jazyk nie je regulárny, použite Pumping Lemma.
+		
+		\item Riadny termín skúšky 2018
+		
+		Formálne definujte gramatiku typu 3, reláciu priamej derivácie a jazyk generovaný touto gramatikou.
+		
+		\item Riadny termín skúšky 2018
+		
+		Rozhodnite a dokážte, či jazyk
+		
+		$L = \{w \in \{a,b\}^* \mid \#_a(w)$ mod $2 < \#_a(w)$ mod $3\}$
+		
+		kde $\#_x(w)$ označuje počet znakov $x$ v~reťazci $w$ a $mod$ značí operáciu modulo, je regulárny.
+		
+		Poznámka: Pri dokazovaní, že je jazyk regulárny, stačí uviesť odpovedajúcu gramatiku alebo automat. Pri dokazovaní, že jazyk nie je regulárny, použite Pumping Lemma.
+		
+		
+	\end{enumerate}
 
 	\section{Bezkontextové jazyky}
 	
 	\begin{enumerate}
+		\item 1. priebežný test 2018
+		
+		Pre bezkontextový jazyk
+		
+		$L = \{a^nb^mc^{3n} \mid n > 0 \land m$ je nepárne (liché)$\}$
+		
+		zostrojte a formálne zapíšte (v~zhode s~definíciou):
+		\begin{itemize}
+			\item bezkontextovú gramatiku $G$ takú, že $L(G) = L$
+			\item zásobníkový automat $A$ taký, že $L(A) = L$
+		\end{itemize}
+		
+		\item 1. priebežný test 2018
+		
+		Presne a formálne definujte gramatiky typu 0 a typu 2. Nech $G_1 = (N_1, \Sigma_1, P_1, S_1)$ a $G_2 = (N_2, \Sigma_2, P_2, S_2)$ sú gramatiky typu 2 a $N_1 \cap N_2 = \emptyset$. Zostrojte gramatiky $G_{\cdot}, G_*, G_{\cup}$ typu 2 také, že:
+		
+		$L(G_{\cdot}) = L(G_1) \cdot L(G_2)$
+		
+		$L(G_{*}) = L(G_1)^*$
+		
+		$L(G_{\cup}) = L(G_1) \cup L(G_2)$
+		
 		\item 2. priebežný test 2018
 		
 		Formálne zapíšte Pumping lemma pre bezkontextové jazyky.
@@ -145,7 +232,19 @@
 		
 		kde $\#_x(w)$ označuje počet znakov $x$ v~reťazci $w$ a $w^R$ označuje reverzáciu reťazca $w$.
 		
-%		\item 2 opravný termín skúšky 2017
+		\item 2 opravný termín skúšky 2017
+		
+		Uvažujme gramatiku $G = (\{S,A,B\}, \{a,b\}, P, S)$ s~pravidlami $P$:
+		
+		$S \rightarrow aSB \mid ASB \mid aa$
+		
+		$A \rightarrow aAa \mid B$
+		
+		$B \rightarrow bb \mid A$
+		
+		Zostroje (systematickým postupom z~prednášky) a formálne zapíšte zásobníkový automat $M$ taký, že $L(G) = L(M)$, ktorý modeluje syntaktickú analýzu zhora nadol.
+		
+		Zapíšte postupnosť konfigurácii stroje $M$ pre vstupný reťazec $bbaab$.
 		
 		\item 2 opravný termín skúšky 2017
 		
@@ -178,20 +277,8 @@
 		Nech $M = (Q, \Sigma, \Gamma, \delta, q_0, Z_0, F)$ je nedeterministický zásobníkový automat. Popíšte konštrukciu nedeterministického zásobníkového automatu $M'$, pre ktorý platí:
 		
 		$L(M') = \{w \in \Sigma^* \mid w \in L(M) \land \#_a(w)$ mod $3 \neq 0\}$
+		
 	\end{enumerate}
-	
-	\begin{figure}[H]
-		\includegraphics[width=\textwidth]{tasks/bezkontextove/task7.png}
-	\end{figure}
-
-	
-	\begin{figure}[H]
-		\includegraphics[width=\textwidth]{tasks/bezkontextove/task13.png}
-	\end{figure}
-	
-	\begin{figure}[H]
-		\includegraphics[width=\textwidth]{tasks/bezkontextove/task14.png}
-	\end{figure}
 
 	\section{Algoritmy}
 	

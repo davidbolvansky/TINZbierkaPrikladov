@@ -5,5 +5,4 @@ all:
 	pdflatex $(OUT).tex
 
 clean:
-	rm -f *.aux *.synctex.gz *.log *.out *.te~ *.toc
-
+	rm --force --verbose *.aux *.synctex.gz *.log *.out *.te~ *.toc

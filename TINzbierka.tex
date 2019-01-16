@@ -6,9 +6,24 @@
 \usepackage{mathtools}
 \usepackage{amsfonts}
 \usepackage{tikz}
+\usetikzlibrary{arrows,shapes,automata,petri,positioning}
 
-\newcommand\ImageItem[2][]{%
-	\hfill\raisebox{\dimexpr-\height+\baselineskip}{\includegraphics[#1]{#2}}\hfill~}
+\tikzset{
+	place/.style={
+		circle,
+		thick,
+		draw=blue!75,
+		fill=blue!20,
+		minimum size=6mm,
+	},
+	transition/.style={
+		rectangle,
+		thick,
+		fill=black,
+		minimum height=8mm,
+		inner xsep=2pt
+	}
+}
 
 \begin{document}
 	
@@ -229,21 +244,26 @@
 	\begin{figure}[H]
 		\includegraphics[width=\textwidth]{tasks/vlastnosti/task4.png}
 	\end{figure}
-	
-	\begin{figure}[H]
-		\includegraphics[width=\textwidth]{tasks/vlastnosti/task5.png}
-	\end{figure}
 
-	\begin{figure}[H]
-		\includegraphics[width=\textwidth]{tasks/vlastnosti/task6.png}
-	\end{figure}
-
+	\begin{enumerate}
+		\item Riadny termín skúšky 2018
+		
+		Nech $\mathcal{L}_{CK}$ značí triedu co-konečných jazykov, ktorých komplement je konečný. Rozhodnite a dokážte, či platí:
+		
+		$\forall L_1, L_2 \in \mathcal{L}_{CK}$ je jazyk $L_1 \cdot L_2$ regulárny
+		
+		\item 2. opravný termín skúšky 2017
+		
+		Nech $\mathcal{L}_{DBJ}$ značí triedu deterministických bezkontextových jazykov a $\mathcal{L}_{3}$ triedu regulárnych jazykov. Rozhodnite a dokážte, či platí:
+		
+		$\exists L_1 \in \mathcal{L}_{DBJ}: \exists L_2 \in \mathcal{L}_{3}: L_1 \cap L_2 \notin \mathcal{L}_{DBJ}$
+	\end{enumerate}
 	\section{Turingove stroje}
 	
 	\begin{enumerate}
 		\item 2. priebežný test 2017
 		
-		Definujte prechodovú funkciu NTS, reťazec prijímaný TS, jazyk prijímaný TS. TS zadaný prechodovou funkciou má na vstupu $\Delta$abca$\Delta^{w}$. Doplňte 4 pravidlá tak, aby výstup bol $\Delta$acba$\Delta^w$.
+		Definujte prechodovú funkciu NTS, reťazec prijímaný TS, jazyk prijímaný TS. TS zadaný prechodovou funkciou má na vstupe $\Delta$abca$\Delta^{w}$. Doplňte 4 pravidlá tak, aby výstup bol $\Delta$acba$\Delta^w$.
 		
 		\item 2. priebežný test 2018
 		
@@ -284,19 +304,36 @@
 		\item 1. opravný termín skúšky 2017
 		
 		Rozhodnite a dokážte, či existuje jazyk $L$, ktorý nie je rekurzívny, ale je rekurzívne vyčísliteľný, a jeho doplnok $\overline{L}$ je tiež rekurzívne vyčísliteľný.
+		
+		\item Riadny termín skúšky 2016
+		
+		Rozhodnite a dokážte, či jazyk:
+		
+		$L_1 = \{\langle M \rangle \mid \exists w \in \Sigma^*$ také, že $M$ zastaví na $w\}$ je rekurzívny
+		$L_2 = \{\langle M \rangle \mid \exists w \in \Sigma^*$ také, že $M$ nezastaví na $w$ behom 17 krokov$\}$ je rekurzívne vyčísliteľný
+	
+		$\langle M \rangle$ označuje kód Turingovho stroja so vstupnou abecedou $\Sigma$
+		
+		\item Riadny termín skúšky 2017
+		
+		Pre abecedu $\Sigma = \{a, b\}$ rozhodnite a dokážte, či:
+		
+		$L_1 = \{\langle M \rangle \mid M$ je Turingov stroj taký, že $\vert L(M) \cap \{a,b\} \vert = 1\}$ je rekurzívny
+		
+		$L_2 = \{\langle M \rangle \mid M$ je Turingov stroj taký, že $\vert L(M) \cap \{a,b\} \vert \geq 1\}$ je rekurzívne vyčísliteľný
+		
+		$L_3 = \{\langle M \rangle \mid M$ je Turingov stroj, pre ktorý platí, že existuje $w \in \{a,b\}^{42}$ také, že $M$ zastaví na $w$ do $\vert w \vert$ krokov$\}$ je rekurzívny
+		
+		Poznámka: $\langle M \rangle$ označuje kód Turingovho stroja $M$.
+		
+		\item 1. opravný termín skúšky 2017
+		
+		$L_1 = \{\langle M \rangle \mid M$ je Turingov stroj taký, že $L(M)$ je bezkontextový jazyk$\}$ je rekurzívne vyčísliteľný
+		
+		$L_2 = \{\langle M \rangle \mid M$ je Turingov stroj taký, že $\vert L(M) \vert \geq 3\}$ je rekurzívne vyčísliteľný
+		
+		Poznámka: $\langle M \rangle$ označuje kód Turingovho stroja $M$.
 	\end{enumerate}
-	
-	\begin{figure}[H]
-		\includegraphics[width=\textwidth]{tasks/redukcie/task4.png}
-	\end{figure}
-
-	\begin{figure}[H]
-		\includegraphics[width=\textwidth]{tasks/redukcie/task6.png}
-	\end{figure}
-	
-	\begin{figure}[H]
-		\includegraphics[width=\textwidth]{tasks/redukcie/task8.png}
-	\end{figure}
 	
 	\section{Zložitosť}
 	
@@ -346,38 +383,120 @@
 	\end{enumerate}
 
 	\section{NP problémy, polynomiálna redukcia}
-	
-	\begin{figure}[H]
-		\includegraphics[width=\textwidth]{tasks/np/task1.png}
-	\end{figure}
 
-	\begin{figure}[H]
-		\includegraphics[width=\textwidth]{tasks/np/task2.png}
-	\end{figure}
-	
-	\begin{figure}[H]
-		\includegraphics[width=\textwidth]{tasks/np/task3.png}
-	\end{figure}
+	\begin{enumerate}
+		\item Riadny termín skúšky 2017
+		
+		Definujte formálne, kedy je jazyk NP-úplný a dokážte, že nasledujúci jazyk je NP-úplný:
+		
+		$L = \{(\phi_1, \phi_2) \mid \phi_1, \phi_2$ sú výrokové formule v konjunktívnej normálnej forme, pre ktoré existujú dve rôzne valuácie premenných $v_1$ a $v_2$ také, že $\phi_1(v_1) \neq \phi_2(v_1) \land \phi_1(v_2) \neq \phi_2(v_2)\}$
+		
+		Poznámka: $\phi_i(v_i) \in \{true, false\}$ označuje, či je formula $\phi_i$ pravdivá pri valuácií premenných $v_i$.
+		
+		\item 1. opravný termín skúšky 2017
+		
+		Definujte formálne, kedy je jazyk NP-úplný a dokážte, že nasledujúci jazyk je NP-úplný:
+		
+		$L = \{(\phi, n) \mid \phi$ je výroková formula nad premennými $x_1, \ldots, x_k$ v konjunktívnej normálnej forme, $n \in \mathbb{N_0}$ a naviac platí, že existuje valuácia $v$ premenných $x_1, \ldots, x_k$, ktorá splňuje $\phi$, a pre ktorú platí $E(v) \geq n\}$,
+		
+		kde $E(v) \in \mathbb{N}$ značí číslo, ktorého binárny zápis $n_1, \ldots, n_k$ je definovaný nasledovným spôsobom:
+		
+		$n_i =
+		\left\{
+		\begin{array}{ll}
+			0  & \mbox{ak } v(x_i) = true \\
+			1 & \mbox{ak } v(x_i) = false
+		\end{array}
+		\right.$
+		
+		\item Riadny termín skúšky 2018
+		
+		Definujte formálne, kedy je jazyk NP-úplný. Ďalej uveďte hlavnú myšlienku dôkazu, že jazyk $L$ definovaný nižšie je NP-úplný:
+		
+		$L = \{(\phi_1, \phi_2) \mid \phi_1, \phi_2$ sú výrokové formule v konjunktívnej normálnej forme, pre ktoré existuje valuácia premenných $\vec{v}$ taká, že $\phi_1(\vec{v}) \neq \phi_2(\vec{v})\}$
+		
+		Poznámka: $\phi_i(\vec{v}) \in \{true, false\}$ označuje, či je formula $\phi_i$ pravdivá pri valuácií premenných $\vec{v}$.
+	\end{enumerate}
 
 	\section{Vyčíslitelné funkcie}
-
-	\begin{figure}[H]
-		\includegraphics[width=\textwidth]{tasks/funkcie/task1.png}
-	\end{figure}
+	
+	\begin{enumerate}
+		\item 1. opravný termín skúšky 2017
+		
+		Pomocou počiatočných funkcií a operátorov kombinácie, kompozície a primitívnej rekurzie vyjadrite funkciu:
+		
+		$tplus(x,y) = x + 3y$
+		
+		Nepoužívajte žiadne ďalšie funkcie zavedené na prednáškach mimo počiatočných funkcií. Nepoužívajte zjednodušenú syntax zápisu funkcií \-- dodržujte presne definičný tvar operátorov kombinácie, kompozície a primitívne rekurzie.
+	\end{enumerate}
 
 	\section{Petriho siete}
 	
-	\begin{figure}[H]
-		\includegraphics[width=\textwidth]{tasks/petri/task1.png}
-	\end{figure}
-
-	\begin{figure}[H]
-		\includegraphics[width=\textwidth]{tasks/petri/task2.png}
-	\end{figure}
-
-	\begin{figure}[H]
-		\includegraphics[width=\textwidth]{tasks/petri/task3.png}
-	\end{figure}
-
+	\begin{enumerate}
+		\item Riadny termín skúšky 2017
+		
+		Definujte formálne P/T Petriho siete. V zhode s touto definíciou popíšte sieť na obrázku (všetky miesta majú neobmedzenú kapacitu). Ďalej popíšte množinu výpočtových postupností tejto Petriho siete ako jazyk nad množinou jej prechodov.
+		
+		\begin{tikzpicture}[node distance=1cm,>=stealth',,bend angle=45,auto]
+		\node [place,tokens=1,label=below:$P_1$] (p1) {};
+		\node [transition,label=above:$T_1$] (t1) [above= of p1] {}
+		edge[pre]   (p1);
+		\node [transition,label=below:$T_2$] (t2) [right= of p1] {}
+		edge[pre]   (p1);
+		\node [transition] (t2x) [above= of p1] {}
+		edge[post]   (p1);
+		\node [place,label=below:$P_3$] (p3) [right= of t2] {};
+		\node [transition] (t2) [right= of p1] {}
+		edge[post]   (p3);
+		\node [place,label=above:$P_2$] (p2) [right= of t1] {};
+		\node [transition] (t1) [above= of p1] {}
+		edge[post]   (p2);
+		\node [transition,label=above:$T_3$] (t3) [above= of p3] {}
+		edge[pre]   (p2);
+		\node [transition] (t3) [above= of p3] {}
+		edge[pre]   (p3);
+		\node [transition] (t3x) [above= of p3] {}
+		edge[post]   (p3);
+		\end{tikzpicture}
+		
+		\item 1. opravný termín skúšky 2017
+		
+		Pre P/T Petriho sieť $N = (P,T,F,W,K,M_0)$ definujte formálne:
+		
+		\begin{itemize}
+			\item predpis pre výpočet nasledujúceho značenia $M'$ zo značennia $M$ pri prevediteľnom prechode $t$ (tj. platí $M[t\rangle M'$)
+			\item množinu $[M_0\rangle$ dosiahnuteľných značení siete $N$
+			\item (zobecnenú) prechodovú funkciu $\sigma: [M_0\rangle \times T^* \rightarrow [M_0\rangle$
+		\end{itemize}
 	
+		\item Riadny termín skúšky 2018
+		
+		Definujte formálne P/T Petriho siete. V zhode s touto definíciou popíšte sieť na obrázku (všetky miesta majú neobmedzenú kapacitu). Ďalej zapíšte prevediteľnú postupnosť prechodov a odpovedajúcich značení, v ktorej sa vyskytujú všetky prechody (použite zavedenú notáciu $M[t\rangle M'$).
+		
+		\begin{tikzpicture}[node distance=1cm,>=stealth',bend angle=45,auto]
+		\node [place,tokens=1,label=below:$P_1$] (p1) {};
+		\node [transition,label=below:$T_1$] (t1) [right= of p1] {}
+		edge[pre]   (p1);
+		\node [transition] (t1x) [right= of p1] {}
+		edge[post]   (p1);
+		\node [place,label=right:$P_2$] (p2) [above right= of t1]{};
+		\node [transition] (t1) [right= of p1] {}
+		edge[post, bend right]   (p2);
+		\node [transition,label=above:$T_2$] (t2) [above left= of p2] {}
+		edge[pre, bend left] node {3} (p2);
+		\node [transition] (t2) [above left= of p2] {}
+		edge[pre, bend left] node {3} (p2);
+		\node [transition] (t2) [above left= of p2] {}
+		edge[pre, bend right] (p1);
+		\node [place,tokens=3,label=above:$P_3$] (p3) [left= of t2]{};
+		\node [transition] (t2x) [right= of p3] {}
+		edge[post]  node[swap] {3} (p3);
+		\node [transition,label=left:$T_3$] (t3) [above left= of p1] {}
+		edge[pre, bend left] node {6} (p3);
+		\node [transition] (t3x) [above left= of p1] {}
+		edge[post, bend right] (p1);
+		\end{tikzpicture}
+		
+	\end{enumerate}
+
 \end{document}

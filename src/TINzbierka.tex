@@ -148,6 +148,30 @@
 		
 		Poznámka: Pri dokazovaní, že je jazyk regulárny, stačí uviesť odpovedajúcu gramatiku alebo automat. Pri dokazovaní, že jazyk nie je regulárny, použite Pumping Lemma.
 		
+		\item 1. opravný termín skúšky 2018
+		
+		Formálne definujte redukovaný DKA, reláciu nerozlišiteľnosti. Zostrojte redukovaný DKA pre
+		
+		$L = \{w \in \{a,b,c\}^* \mid w$ obsahuje podreťazec $aab\}$
+		
+		\item 1. opravný termín skúšky 2018
+			
+		Rozhodnite a dokážte, či
+		
+		\begin{itemize}
+			\item Existuje regulárny jazyk, ktorý nie je konečný ani co-konečný.
+			\item Problém neprázdnosti KA je rozhodnuteľný.
+			\item Trieda regulárnych jazykov je uzavretá na nekonečné zjednotenie, tj. pre každú nekonečnú množinu $\{L_0, L_1, L_2, \ldots\}$ regulárnych jazykov platí, že aj ich zjednotenie $L = \bigcup L_i$ je regulárny jazyk.
+		\end{itemize}
+	
+	   \item 1. opravný termín skúšky 2018
+	   
+	   Dokážte, že nasledujúci jazyk nie je regulárny:
+	    
+	   $L = \{w \in \{a,b\}^* \mid \#a(w) \neq \#b(w)\}$ 
+	   
+	   Poznámka: nedoporučuje se použitie Pumping Lemma.
+		
 		
 	\end{enumerate}
 
@@ -278,6 +302,16 @@
 		
 		$L(M') = \{w \in \Sigma^* \mid w \in L(M) \land \#_a(w)$ mod $3 \neq 0\}$
 		
+		\item 1. opravný termín skúšky 2018
+		
+		Formálne definujte Pumping Lemma pre bezkontextové jazyky. Uveďte hlavné kroky dôkazu Pumping Lemma pre bezkontextové jazyky.
+		
+		\item 1. opravný termín skúšky 2018
+		
+		Formálne definujte reláciu prechodu u~DZA. Zostrojte DZA, ktorý akceptuje jazyk:
+		
+		$L = \{w \in \{a,b,c\}^* \mid \forall u \in \{a,b,c\}^*$ platí, že ak je $u$ prefix $w$, potom $\#a(u) \geq \#b(u)\}$
+		
 	\end{enumerate}
 
 	\section{Algoritmy}
@@ -329,7 +363,7 @@
 		
 		Pomocou zapísaného algoritmu preveďte $A$ na jazykovo ekvivalentný NKA (t.j. bez $\varepsilon$ prechodov).
 		
-		\item 2. opravný termín skúšky 2017, Riadny termín skúšky 2018
+		\item Riadny termín skúšky 2018
 		
 		Zapíšte algoritmus, ktorý daný nedeterministický konečný automat bez $\varepsilon$ prechodov prevedie na jazykovo ekvivalentný konečný automat. Algoritmus demonštrujte na automatu uvedenom nižšie.
 		
@@ -360,6 +394,11 @@
 			\fill [black] (39.72,-30.12) -- (40.6,-29.77) -- (39.79,-29.18);
 			\end{tikzpicture}
 		\end{center}
+	
+		\item 1. opravný termín skúšky 2018
+		
+		Uveďte hlavné kroky algoritmu, ktorý pre danú bezkontextovú gramatiku $G$ rozhoduje, či je jazyk $L(G)$ nekonečný. Algoritmus demonštrujte na bezkontextovej gramatike $G = (\{S,A\}, \{a,b\}, \{S \rightarrow aA, S \rightarrow Sb, A \rightarrow b\}, S)$.
+		
 	\end{enumerate}
 	
 	\section{Uzáverové vlastnosti}
@@ -404,18 +443,18 @@
 		$\forall L_1 \in \mathcal{L}_3: \exists L_2 \in \mathcal{L}_2 \setminus \mathcal{L}_3: L_1 \cup L_2 \in \mathcal{L}_3$
 		
 		$\mathcal{L}_3$ a $\mathcal{L}_2$ značia triedu regulárnych resp. bezkontextových jazykov.
-	
-		\item Riadny termín skúšky 2018
-		
-		Nech $\mathcal{L}_{CK}$ značí triedu co-konečných jazykov, ktorých komplement je konečný. Rozhodnite a dokážte, či platí:
-		
-		$\forall L_1, L_2 \in \mathcal{L}_{CK}$ je jazyk $L_1 \cdot L_2$ regulárny
 		
 		\item 2. opravný termín skúšky 2017
 		
 		Nech $\mathcal{L}_{DBJ}$ značí triedu deterministických bezkontextových jazykov a $\mathcal{L}_{3}$ triedu regulárnych jazykov. Rozhodnite a dokážte, či platí:
 		
 		$\exists L_1 \in \mathcal{L}_{DBJ}: \exists L_2 \in \mathcal{L}_{3}: L_1 \cap L_2 \notin \mathcal{L}_{DBJ}$
+	
+		\item Riadny termín skúšky 2018
+		
+		Nech $\mathcal{L}_{CK}$ značí triedu co-konečných jazykov, ktorých komplement je konečný. Rozhodnite a dokážte, či platí:
+		
+		$\forall L_1, L_2 \in \mathcal{L}_{CK}$ je jazyk $L_1 \cdot L_2$ regulárny
 	\end{enumerate}
 
 	\section{Turingove stroje}

@@ -1,4 +1,5 @@
-\documentclass[]{article}
+\documentclass[11pt,a4paper]{article}
+\usepackage[left=2cm,text={17cm,22cm},top=2cm]{geometry}
 \usepackage[utf8]{inputenc}
 \usepackage[slovak]{babel}
 \usepackage{graphicx}
@@ -8,327 +9,352 @@
 \usepackage{tikz}
 \usepackage{hyperref}
 
-\usetikzlibrary{arrows,shapes,automata,petri,positioning}
+\graphicspath{{img/}}
+
+\usetikzlibrary{
+	arrows,
+	shapes,
+	automata,
+	petri,
+	positioning
+}
 
 \hypersetup{
 	colorlinks,
-	citecolor=black,
-	filecolor=black,
-	linkcolor=black,
-	urlcolor=black
+	citecolor = black,
+	filecolor = black,
+	linkcolor = black,
+	urlcolor  = black
 }
 
 \tikzset{
 	place/.style={
 		circle,
 		thick,
-		draw=black!75,
-		fill=white!20,
-		minimum size=6mm,
+		draw = black!75,
+		fill = white!20,
+		minimum size = 6mm,
 	},
 	transition/.style={
 		rectangle,
 		thick,
-		fill=black,
-		minimum height=8mm,
-		inner xsep=2pt
+		fill = black,
+		minimum height = 8mm,
+		inner xsep = 2pt
 	}
 }
 
 \begin{document}
-	
-	
-	\title{TIN - Študentská zbierka príkladov}
-	\date{\today}
-	
-	\maketitle
+
+	\begin{titlepage}
+		\begin{center}
+			\hfill\\[20em]
+			\begin{figure}[H]
+				\centering
+				\includegraphics[scale=0.8]{logo.eps}
+			\end{figure}
+			\hfill\\[1em]
+			\Huge{
+				\textbf{
+					TIN
+				}
+			}
+			\hfill\\[1em]
+			\huge{
+				\textbf{
+					Študentská zbierka príkladov
+				}
+			}
+		\end{center}
+	\end{titlepage}
 	\newpage
+
 	\tableofcontents
 	\newpage
-	
+
 	\section{Chomského hierarchia}
-	
+
 	\begin{enumerate}
 		\item 1. opravný termín skúšky 2017
-		
+
 		Formálne definujte pojem gramatika a pre každú triedu Chomského hierarchie uveďte typ gramatiky generujúcu jazyky tejto triedy.
-		
+
 		\item 2. opravný termín skúšky 2017
-		
+
 		Uvažujte Chomského hierarchiu jazykov rozšírenú o~triedu rekurzívnych jazykov a triedu deterministických bezkontextových jazykov. Pre každú triedu tejto klasifikácie uveďte a zdôvodnite, či je v~tejto triede rozhodnuteľný, alebo čiastočne rozhodnuteľný, problém náležitosti (členstva) daného reťazca do jazyka.
 	\end{enumerate}
 
 	\section{Regulárne jazyky}
 	\begin{enumerate}
 		\item 1. priebežný test 2018
-		
+
 		Pre deterministický konečný automat $A = (\{q_0,q_1,q_2,q_3\}, \{a,b,c\}, \delta, q_0, \{q_3\})$, kde $\delta$ je definovaná ako:
-		
+
 		$\delta(q_0, a) = q_1$ \hspace{10pt} $\delta(q_0, b) = q_0$ \hspace{10pt} $\delta(q_0, c) = q_0$
-		
+
 		$\delta(q_1, a) = q_2$ \hspace{10pt} $\delta(q_1, b) = q_0$ \hspace{10pt} $\delta(q_1, c) = q_0$
-		
+
 		$\delta(q_2, a) = q_2$ \hspace{10pt} $\delta(q_2, b) = q_3$ \hspace{10pt} $\delta(q_2, c) = q_0$
-		
+
 		$\delta(q_3, a) = q_3$ \hspace{10pt} $\delta(q_3, b) = q_3$ \hspace{10pt} $\delta(q_3, c) = q_3$
-		
+
 		zapíšte jazyk $L(A)$ v~tvare regulárneho výrazu. Ďalej zostrojte pravú lineárnu gramatiku $G$, pre ktorú platí, že $L(G) = L(A)$.
-		
+
 		\item 1. priebežný test 2018
-		
+
 		Uvážme nasledujúci problém $P$: pre nedeterministický konečný automat $A = (Q, \Sigma, \delta, q_0, F)$ rozhodnite, či je jazyk $L(A)$ nekonečný.
-		
+
 		\begin{itemize}
 			\item Zapíšte stručne hlavnú myšlienku algoritmu, ktorý rieši problém $P$.
 			\item Na základe prechodovej funkcie $\delta$ zapíšte formálne reláciu $R_\delta \subseteq Q \times Q$, ktorá popisuje, či je v~automate $A$ možný (priamy) medzi danou dvojicou stavov ($p,q$). Na základe tejto relácie a ich uzáveru zapíšte predikát, ktorý rozhoduje problém $P$.
 			\item Demonštrujte použitie tohto predikátu na automatu $A = (\{q_0,q_1,q_2\}, \{a\}, \delta, q_0, \{q_2\})$, kde $\delta$ je definovaná ako:
-			
+
 			$\delta(q_0, a) = \{q_1, q_2\})$
-			
+
 			$\delta(q_1, a) = \{q_1, q_2\})$
-			
+
 			$\delta(q_2, a) = \emptyset)$
 		\end{itemize}
-		
+
 		\item Riadny termín skúšky 2017
-		
+
 		Formálne definujte nedeterministický konečný automat, jeho konfiguráciu, reláciu prechodu medzi konfiguráciami a jazyk prijímaný týmto automatom.
-		
+
 		\item Riadny termín skúšky 2017
-		
+
 		Rozhodnite a dokážte, či jazyk
-		
+
 		$L = \{w \in \{a,b,c\}^* \mid \#_a(w)$ mod $2 = \#_b(w)$ mod $2\}$
-		
+
 		kde $\#_x(w)$ označuje počet znakov $x$ v~reťazci $w$ a $mod$ značí operáciu modulo, je regulárny.
-		
+
 		Poznámka: Pri dokazovaní, že je jazyk regulárny, stačí uviesť odpovedajúcu gramatiku alebo automat. Pri dokazovaní, že jazyk nie je regulárny, použite Pumping Lemma.
-		
+
 		\item Riadny termín skúšky 2017
-		
+
 		Formálne zapíšte obecný tvar sústavy rovníc nad regulárnymi výrazmi v~štandardnom tvare. Ďalej uvažujte jazyk generovaný gramatikou $G = (\{X,Y\}, \{x,y\}, P, X)$, kde $P$ je tvorená pravidlami:
-		
+
 		$X \rightarrow xyX \mid xxY \mid \varepsilon$
-		
+
 		$Y \rightarrow yY \mid x$
-		
+
 		Zostavením príslušnej sústavy rovníc nad regulárnymi výrazmi vo štandardnom tvare a jej riešením vyjadrite jazyk $L(G)$.
-		
+
 		Poznámka: Preferované riešenie neprevádza $G$ na ekvivalentný konečný automat.
-		
+
 		\item 1. opravný termín skúšky 2017
-		
+
 		Rozhodnite a dokážte, či jazyk
-		
+
 		$L = \{w \in \{a,b,c\}^* \mid \#_a(w) + \#_b(w) =  \#_c(w) \lor \#_c(w) \geq 2\}$
-		
+
 		kde $\#_x(w)$ označuje počet znakov $x$ v~reťazci $w$, je regulárny.
-		
+
 		Poznámka: Pri dokazovaní, že je jazyk regulárny, stačí uviesť odpovedajúcu gramatiku alebo automat. Pri dokazovaní, že jazyk nie je regulárny, použite Pumping Lemma.
-		
+
 		\item 2. opravný termín skúšky 2017
-		
+
 		Rozhodnite a dokážte, či nasledujúci jazyk je regulárny.
-		
+
 		$L = \{w \in \{a,b,c\}^* \mid \#_a(w) = \#_b(w) \land \#_b(w) \leq 2\}$
-		
+
 		Poznámka: $\#_x(w)$ označuje počet znakov $x$ v~reťazci $w$. Pri dokazovaní, že je jazyk regulárny, stačí uviesť odpovedajúcu gramatiku alebo automat. Pri dokazovaní, že jazyk nie je regulárny, použite Pumping Lemma.
-		
+
 		\item Riadny termín skúšky 2018
-		
+
 		Formálne definujte gramatiku typu 3, reláciu priamej derivácie a jazyk generovaný touto gramatikou.
-		
+
 		\item Riadny termín skúšky 2018
-		
+
 		Rozhodnite a dokážte, či jazyk
-		
+
 		$L = \{w \in \{a,b\}^* \mid \#_a(w)$ mod $2 < \#_a(w)$ mod $3\}$
-		
+
 		kde $\#_x(w)$ označuje počet znakov $x$ v~reťazci $w$ a $mod$ značí operáciu modulo, je regulárny.
-		
+
 		Poznámka: Pri dokazovaní, že je jazyk regulárny, stačí uviesť odpovedajúcu gramatiku alebo automat. Pri dokazovaní, že jazyk nie je regulárny, použite Pumping Lemma.
-		
+
 		\item 1. opravný termín skúšky 2018
-		
+
 		Formálne definujte redukovaný DKA, reláciu nerozlišiteľnosti. Zostrojte redukovaný DKA pre
-		
+
 		$L = \{w \in \{a,b,c\}^* \mid w$ obsahuje podreťazec $aab\}$
-		
+
 		\item 1. opravný termín skúšky 2018
-			
+
 		Rozhodnite a dokážte, či
-		
+
 		\begin{itemize}
 			\item Existuje regulárny jazyk, ktorý nie je konečný ani co-konečný.
 			\item Problém neprázdnosti KA je rozhodnuteľný.
 			\item Trieda regulárnych jazykov je uzavretá na nekonečné zjednotenie, tj. pre každú nekonečnú množinu $\{L_0, L_1, L_2, \ldots\}$ regulárnych jazykov platí, že aj ich zjednotenie $L = \bigcup L_i$ je regulárny jazyk.
 		\end{itemize}
-	
-	   \item 1. opravný termín skúšky 2018
-	   
-	   Dokážte, že nasledujúci jazyk nie je regulárny:
-	    
-	   $L = \{w \in \{a,b\}^* \mid \#a(w) \neq \#b(w)\}$ 
-	   
-	   Poznámka: nedoporučuje se použitie Pumping Lemma.
-		
-		
+
+		 \item 1. opravný termín skúšky 2018
+
+		 Dokážte, že nasledujúci jazyk nie je regulárny:
+
+		 $L = \{w \in \{a,b\}^* \mid \#a(w) \neq \#b(w)\}$
+
+		 Poznámka: nedoporučuje se použitie Pumping Lemma.
+
+
 	\end{enumerate}
 
 	\section{Bezkontextové jazyky}
-	
+
 	\begin{enumerate}
 		\item 1. priebežný test 2018
-		
+
 		Pre bezkontextový jazyk
-		
+
 		$L = \{a^nb^mc^{3n} \mid n > 0 \land m$ je nepárne (liché)$\}$
-		
+
 		zostrojte a formálne zapíšte (v~zhode s~definíciou):
 		\begin{itemize}
 			\item bezkontextovú gramatiku $G$ takú, že $L(G) = L$
 			\item zásobníkový automat $A$ taký, že $L(A) = L$
 		\end{itemize}
-		
+
 		\item 1. priebežný test 2018
-		
+
 		Presne a formálne definujte gramatiky typu 0 a typu 2. Nech $G_1 = (N_1, \Sigma_1, P_1, S_1)$ a $G_2 = (N_2, \Sigma_2, P_2, S_2)$ sú gramatiky typu 2 a $N_1 \cap N_2 = \emptyset$. Zostrojte gramatiky $G_{\cdot}, G_*, G_{\cup}$ typu 2 také, že:
-		
+
 		$L(G_{\cdot}) = L(G_1) \cdot L(G_2)$
-		
+
 		$L(G_{*}) = L(G_1)^*$
-		
+
 		$L(G_{\cup}) = L(G_1) \cup L(G_2)$
-		
+
 		\item 2. priebežný test 2018
-		
+
 		Formálne zapíšte Pumping lemma pre bezkontextové jazyky.
-		
+
 		\item 2. priebežný test 2018
-		
+
 		Rozhodnite a dokážte, či jazyk $L$ nad abecedou $\Sigma = \{a,b,c\}$ je bezkontextový:
-		
+
 		$L = \{c^iw \mid i > 0 \land \#_a(w) \leq 3 * \#_b(w)\} \cap \{c^iww \mid i \geq 0 \land w \in \{a,b\}^*\}$
-		
+
 		kde $\#_x(w)$ označuje počet znakov $x$ v~reťazci $w$.
-		
+
 		\item 2. priebežný test 2018
-		
+
 		Pre deterministický zásobníkový automat (DZA) $M = (Q, \Sigma, \Gamma, \delta, q_0, Z_0, F)$ formálne definujte tvar prechodovej funkcie $\delta$ a konfiguráciu automatu $M$.
-		
+
 		\item 2. priebežný test 2018
-		
+
 		Nech $M = (Q, \Sigma, \Gamma, \delta, q_0, Z_0, F)$ je DZA. Dokážte, že jazyk
-		
+
 		$L = \{w \in \Sigma^* \mid w \in L(M) \land w$ obsahuje podreťazec $ab\}$
-		
+
 		je deterministický bezkontextový jazyk (je možné sa odkázať na vlastnosti bezkontextových jazykov z~prednášky).
-		
+
 		\item Riadny termín skúšky 2017
-		
+
 		Ukážte, že pre jazyk
-		
+
 		$L = \{wcw^R \mid w \in \{a,b\}^*\}$
-		
+
 		kde $w^R$ označuje reverzáciu reťazca $w$, platí Pumping Lemma pre bezkontextové jazyky pre hodnotu $k$ = 3 ($k$ je konštanta z~Pumping Lemma).
-		
+
 		\item Riadny termín skúšky 2017
-		
+
 		Navrhnite bezkontextovú gramatiku pre jazyk
-		
+
 		$L = \{a^nb^mc^md^n \mid n,m \geq 0\}$
-		
+
 		\item Riadny termín skúšky 2017
-		
+
 		Formálne definujte bezkontextovú gramatiku, priamu deriváciu, reláciu derivácie a jazyk generovaný touto gramatikou.
-		
+
 		\item 1 opravný termín skúšky 2017
-		
+
 		Formálne definujte (nedeterministický) zásobníkový automat, jeho konfiguráciu, reláciu prechodu medzi konfiguráciami a jazyk prijímaný týmto automatom.
-		
+
 		\item 1 opravný termín skúšky 2017
-		
+
 		Rozhodnite a dokážte, či nasledujúce jazyky nad abecedou $\Sigma = \{a,b,c\}$ sú bezkontextové:
-		
+
 		$L_1 = \{w \in \Sigma^* \mid (w = zcz^R \land z \in \{a,b\}^*) \lor \#_a(w) = \#_b(w)\}$
-		
+
 		$L_2 = \{w \in \Sigma^* \mid (w = zcz^R \land z \in \{a,b\}^*) \land \#_a(w) = \#_b(w)\}$
-		
+
 		kde $\#_x(w)$ označuje počet znakov $x$ v~reťazci $w$ a $w^R$ označuje reverzáciu reťazca $w$.
-		
+
 		\item 2 opravný termín skúšky 2017
-		
+
 		Uvažujme gramatiku $G = (\{S,A,B\}, \{a,b\}, P, S)$ s~pravidlami $P$:
-		
+
 		$S \rightarrow aSB \mid ASB \mid aa$
-		
+
 		$A \rightarrow aAa \mid B$
-		
+
 		$B \rightarrow bb \mid A$
-		
+
 		Zostroje (systematickým postupom z~prednášky) a formálne zapíšte zásobníkový automat $M$ taký, že $L(G) = L(M)$, ktorý modeluje syntaktickú analýzu zhora nadol.
-		
+
 		Zapíšte postupnosť konfigurácii stroje $M$ pre vstupný reťazec $bbaab$.
-		
+
 		\item 2 opravný termín skúšky 2017
-		
+
 		Rozhodnite a dokážte, či je nasledujúci jazyk bezkontextový.
-		
+
 		$L = \{w \in \{a,b,c\}^* \mid \#_a(w) + \#_c(w) \leq  \#_b(w) +  \#_c(w)\}$
-		
+
 		Poznámka: Pri dokazovaní, že je jazyk bezkontextový, stačí uviesť odpovedajúcu gramatiku alebo automat. Pri dokazovaní, že jazyk nie je bezkontextový, použite Pumping Lemma.
-		
+
 		\item Riadny termín skúšky 2018
-		
+
 		Formálne definujte nedeterministický zásobníkový automat, jeho konfiguráciu, reláciu prechodu a jazyk prijímaný týmto automatom.
-		
+
 		\item Riadny termín skúšky 2018
-		
+
 		Navrhnite bezkontextovú gramatiku pre jazyk
-		
+
 		$L = \{a^ib^jc^k \mid i,j,k > 0 \land (i \geq 3j \lor 2i \leq k)\}$
-		
+
 		\item Riadny termín skúšky 2018
-		
+
 		Ukážte, že pre jazyk
-		
+
 		$L = \{w \in \{a,b\}^* \mid \#_a(w) = \#_b(w)\}$
-		
+
 		kde $\#_x(w)$ označuje počet znakov $x$ v~reťazci $w$, platí Pumping Lemma pre bezkontextové jazyky pre hodnotu $k$ = 2 ($k$ je konštanta z~Pumping Lemma).
-		
-		\item Riadny termín skúšky 2018 
-		
+
+		\item Riadny termín skúšky 2018
+
 		Nech $M = (Q, \Sigma, \Gamma, \delta, q_0, Z_0, F)$ je nedeterministický zásobníkový automat. Popíšte konštrukciu nedeterministického zásobníkového automatu $M'$, pre ktorý platí:
-		
+
 		$L(M') = \{w \in \Sigma^* \mid w \in L(M) \land \#_a(w)$ mod $3 \neq 0\}$
-		
+
 		\item 1. opravný termín skúšky 2018
-		
+
 		Formálne definujte Pumping Lemma pre bezkontextové jazyky. Uveďte hlavné kroky dôkazu Pumping Lemma pre bezkontextové jazyky.
-		
+
 		\item 1. opravný termín skúšky 2018
-		
+
 		Formálne definujte reláciu prechodu u~DZA. Zostrojte DZA, ktorý akceptuje jazyk:
-		
+
 		$L = \{w \in \{a,b,c\}^* \mid \forall u \in \{a,b,c\}^*$ platí, že ak je $u$ prefix $w$, potom $\#a(u) \geq \#b(u)\}$
-		
+
 	\end{enumerate}
 
 	\section{Algoritmy}
-	
+
 	\begin{enumerate}
 		\item Riadny termín skúšky 2016
-		
+
 		Definujte sústavu rovníc nad regulárnymi výrazmi v~štandardnom tvare. Ďalej uvažujte obecnú lineárnu gramatiku $G$. Popíšte formálne algoritmus nájdenia regulárneho výrazu $R$ takého, že $L(G) = L(R)$, bez toho, aby bolo potrebné ku gramatike $G$ vytvárať ekvivalentný konečný automat a/alebo gramatiku $G$ transformovať. Algoritmus nájdenia regulárneho výrazu ilustrujte na príklade netriviálnej (s~rekurziou, aspoň 2 nonterminály a 4 pravidla) pravej lineárnej gramatiky $G$, ktorá nie je regulárna.
-		
+
 		\item Riadny termín skúšky 2017
-		
+
 		Zapíšte algoritmus (vrátane výpočtu množiny neterminálov $N_t = \{ A \mid A \xRightarrow{}^+ \varepsilon\}$), ktorý danú bezkontextovú gramatiku transformuje na jazykovo ekvivalentnú bezkontextovú gramatiku bez epsilon pravidiel.
-		
+
 		\item 1. opravný termín skúšky 2017
-		
+
 		Formálne definujte pojem $\varepsilon$-uzáver stavu RKA (rozšíreného konečného automatu, tj. nedeterministického automate s~$\varepsilon$ prechodmi) a formálne zapíšte algoritmus, ktorý v~polynomiálnom čase prevedie vstupný RKA na nedeterministický konečný automat bez $\varepsilon$ prechodov (NKA). Ďalej uvažujte nasledujúci RKA $A$:
-		
+
 		\begin{center}
 			\begin{tikzpicture}[scale=0.2]
 			\tikzstyle{every node}+=[inner sep=0pt]
@@ -360,13 +386,13 @@
 			\draw (34.8,-30.19) node [above] {$\varepsilon$};
 			\end{tikzpicture}
 		\end{center}
-		
+
 		Pomocou zapísaného algoritmu preveďte $A$ na jazykovo ekvivalentný NKA (t.j. bez $\varepsilon$ prechodov).
-		
+
 		\item Riadny termín skúšky 2018
-		
+
 		Zapíšte algoritmus, ktorý daný nedeterministický konečný automat bez $\varepsilon$ prechodov prevedie na jazykovo ekvivalentný konečný automat. Algoritmus demonštrujte na automatu uvedenom nižšie.
-		
+
 		\begin{center}
 			\begin{tikzpicture}[scale=0.2]
 			\tikzstyle{every node}+=[inner sep=0pt]
@@ -394,244 +420,244 @@
 			\fill [black] (39.72,-30.12) -- (40.6,-29.77) -- (39.79,-29.18);
 			\end{tikzpicture}
 		\end{center}
-	
+
 		\item 1. opravný termín skúšky 2018
-		
+
 		Uveďte hlavné kroky algoritmu, ktorý pre danú bezkontextovú gramatiku $G$ rozhoduje, či je jazyk $L(G)$ nekonečný. Algoritmus demonštrujte na bezkontextovej gramatike $G = (\{S,A\}, \{a,b\}, \{S \rightarrow aA, S \rightarrow Sb, A \rightarrow b\}, S)$.
-		
+
 	\end{enumerate}
-	
+
 	\section{Uzáverové vlastnosti}
 	\begin{enumerate}
 		\item 2. priebežný test 2018
-	
+
 		Rozhodnite a dokážte, či platia nasledujúce tvrdenia ($\mathcal{L}_2$ značí triedu všetkých bezkontextových jazykov a $\mathcal{L}_3$ značí triedu regulárnych jazykov):
-		
+
 		\begin{itemize}
 			\item $\exists L_1 \in \mathcal{L}_2: \forall L_2 \in \mathcal{L}_2: L_1 \cap L_2 \in \mathcal{L}_2$
-			
+
 			\item $\exists L_1 \in \mathcal{L}_2 \setminus \mathcal{L}_3: \forall L_2 \in \mathcal{L}_3: L_1 \cap L_2 \in \mathcal{L}_3$
-			
+
 			\item Trieda bezkontextových jazykov nad abecedou $\Sigma = \{a,b\}$ je uzavrená vzhľadom k~binárnej operácii $\circ$ definovanej nasledovne:
-			
+
 			$L_1 \circ L_2 = \{w \in \Sigma^* \mid (w \in L_1 \land w \in L_2) \lor \vert w \vert > 1\}$
 		\end{itemize}
 
 		\item Riadny termín skúšky 2017
-	
+
 		Rozhodnite a dokážte, či pre jazyky nad abecedou $\Sigma$ platí:
-		
+
 		$\forall L_1 \in \mathcal{L}_3: \exists L_2 \in \mathcal{L}_2 \setminus \mathcal{L}_3: L_1 \cap L_2 \in \mathcal{L}_3$
-			
+
 		kde $\mathcal{L}_3$ a $\mathcal{L}_2$ značia triedu regulárnych resp. bezkontextových jazykov.
-	
+
 		\item 1. opravný termín skúšky 2017
-	
+
 		Rozhodnite a dokážte, či pre jazyky nad abecedou $\Sigma = \{a,b,c\}$ platí:
-		
+
 		\begin{itemize}
 			\item $\forall L \in \mathcal{L}_3: \vert L \vert = \infty \rightarrow \Diamond L \in  \mathcal{L}_2$
 			\item $\forall L \in \mathcal{L}_3: \vert L \vert = \infty \rightarrow \Diamond L \in  \mathcal{L}_2 \setminus \mathcal{L}_3$
-		\end{itemize}	
-	
+		\end{itemize}
+
 		kde $\Diamond L = \{w \in L \mid \#_a(w) + \#_b(w) = \#_c(w)\}$
 
 		\item 1. opravný termín skúšky 2017
-	
+
 		Rozhodnite a dokážte, či pre jazyky nad abecedou $\Sigma$ platí:
-		
+
 		$\forall L_1 \in \mathcal{L}_3: \exists L_2 \in \mathcal{L}_2 \setminus \mathcal{L}_3: L_1 \cup L_2 \in \mathcal{L}_3$
-		
+
 		$\mathcal{L}_3$ a $\mathcal{L}_2$ značia triedu regulárnych resp. bezkontextových jazykov.
-		
+
 		\item 2. opravný termín skúšky 2017
-		
+
 		Nech $\mathcal{L}_{DBJ}$ značí triedu deterministických bezkontextových jazykov a $\mathcal{L}_{3}$ triedu regulárnych jazykov. Rozhodnite a dokážte, či platí:
-		
+
 		$\exists L_1 \in \mathcal{L}_{DBJ}: \exists L_2 \in \mathcal{L}_{3}: L_1 \cap L_2 \notin \mathcal{L}_{DBJ}$
-	
+
 		\item Riadny termín skúšky 2018
-		
+
 		Nech $\mathcal{L}_{CK}$ značí triedu co-konečných jazykov, ktorých komplement je konečný. Rozhodnite a dokážte, či platí:
-		
+
 		$\forall L_1, L_2 \in \mathcal{L}_{CK}$ je jazyk $L_1 \cdot L_2$ regulárny
 	\end{enumerate}
 
 	\section{Turingove stroje}
-	
+
 	\begin{enumerate}
 		\item 2. priebežný test 2017
-		
+
 		Definujte prechodovú funkciu NTS, reťazec prijímaný TS, jazyk prijímaný TS. TS zadaný prechodovou funkciou má na vstupe $\Delta$abca$\Delta^{w}$. Doplňte 4 pravidlá tak, aby výstup bol $\Delta$acba$\Delta^w$.
-		
+
 		\item 2. priebežný test 2018
-		
+
 		Pre deterministický Turingov stroj $M = (Q, \Sigma, \Gamma, \delta, q_0, q_f)$ formálne definujte tvar prechodovej funkcie $\delta$, konfiguráciu stroja $M$ a reláciu prechodu $\vdash_M$ medzi konfiguráciami.
-		
+
 		\item 2. priebežný test 2018
-		
+
 		Zostrojte a formálne zapíšte deterministický Turingov stroj $M$ o~najviac 4 stavoch a 4 prechodoch tak, aby platilo $(q_0, \Delta a^i\Delta^w, 0) {\vdash^*}_M (q_f, \Delta b^i\Delta^w, n)$, kde i,n $\geq$ 0.
 	\end{enumerate}
 
-	
+
 	\section{Diagonalizácia}
-	
+
 	\begin{enumerate}
 		\item 1. opravný termín skúšky 2017
-		
+
 		Pomocou techniky diagonalizácie dokážte, že existuje jazyk, ktorý nie je rekurzívne vyčísliteľný.
-		
+
 		\item Riadny termín skúšky 2016
-		
+
 		Dokážte, že existuje totálna funkcia $f: \mathbb{N} \rightarrow \mathbb{N}$, ktorá nie je primitívne rekurzívna.
-		
+
 		\item 1. opravný termín skúšky 2016
-		
+
 		Diagonalizáciou dokážte, že existuje jazyk, ktorý nie je kontextový, ale je rekurzívny.
-		
+
 	\end{enumerate}
-	
+
 	\section{Redukcie, rekurzívne a rekurzívne vyčísliteľné jazyky}
 	\begin{enumerate}
 		\item Riadny termín skúšky 2017
-		
+
 		Formálne definujte pojem redukcie jazyka $L_1$ na jazyk $L_2$ a zapíšte príslušné tvrdenia (implikácie) pre určovanie rozhodnuteľnosti resp. nerozhodnuteľnosti jazykov.
-		
+
 		\item Riadny termín skúšky 2017
-		
+
 		Rozhodnete a dokážte, či sú rekurzívne vyčísliteľné jazyky uzavreného vzhľadom k~operácii pozitívna iterácia +.
-		
+
 		\item Riadny termín skúšky 2017
-		
+
 		Rozhodnite a dokážte, či existuje rekurzívne vyčísliteľný jazyk $L_1$ a rekurzívny jazyk $L_2$, pre ktoré platí $L_2 \leq L_2$ (tj. $L_1$ sa redukuje na $L_2$).
-		
+
 		\item 1. opravný termín skúšky 2017
-		
+
 		Rozhodnite a dokážte, či existuje jazyk $L$, ktorý nie je rekurzívny, ale je rekurzívne vyčísliteľný, a jeho doplnok $\overline{L}$ je tiež rekurzívne vyčísliteľný.
-		
+
 		\item Riadny termín skúšky 2016
-		
+
 		Rozhodnite a dokážte, či jazyk:
-		
+
 		$L_1 = \{\langle M \rangle \mid \exists w \in \Sigma^*$ také, že $M$ zastaví na $w\}$ je rekurzívny
-		
+
 		$L_2 = \{\langle M \rangle \mid \exists w \in \Sigma^*$ také, že $M$ nezastaví na $w$ behom 17 krokov$\}$ je rekurzívne vyčísliteľný
-	
+
 		$\langle M \rangle$ označuje kód Turingovho stroja so vstupnou abecedou $\Sigma$
-		
+
 		\item 1. opravný termín skúšky 2016
-		
+
 		Rozhodnite a dokážte, či jazyk:
-		
+
 		$L_1 = \{\langle M \rangle \mid \forall w \in \Sigma^*$ také, že $M$ nezastaví na $w\}$ je rekurzívny
-		
+
 		$L_2 = \{\langle M \rangle \mid \forall w \in \Sigma^*$ také, že $M$ zastaví na $w$ behom 17 krokov$\}$ je rekurzívne vyčísliteľný
-		
+
 		$\langle M \rangle$ označuje kód Turingovho stroja so vstupnou abecedou $\Sigma$
-		
+
 		\item 1. opravný termín skúšky 2016
-		
+
 		Uveďte jazyk, ktorý je rekurzívne vyčísliteľný, ale nie je rekurzívny, a jeho komplement je tiež rekurzívne vyčísliteľný.
-		
+
 		\item Riadny termín skúšky 2017
-		
+
 		Pre abecedu $\Sigma = \{a, b\}$ rozhodnite a dokážte, či:
-		
+
 		$L_1 = \{\langle M \rangle \mid M$ je Turingov stroj taký, že $\vert L(M) \cap \{a,b\} \vert = 1\}$ je rekurzívny
-		
+
 		$L_2 = \{\langle M \rangle \mid M$ je Turingov stroj taký, že $\vert L(M) \cap \{a,b\} \vert \geq 1\}$ je rekurzívne vyčísliteľný
-		
+
 		$L_3 = \{\langle M \rangle \mid M$ je Turingov stroj, pre ktorý platí, že existuje $w \in \{a,b\}^{42}$ také, že $M$ zastaví na $w$ do $\vert w \vert$ krokov$\}$ je rekurzívny
-		
+
 		Poznámka: $\langle M \rangle$ označuje kód Turingovho stroja $M$.
-		
+
 		\item 1. opravný termín skúšky 2017
-		
+
 		$L_1 = \{\langle M \rangle \mid M$ je Turingov stroj taký, že $L(M)$ je bezkontextový jazyk$\}$ je rekurzívne vyčísliteľný
-		
+
 		$L_2 = \{\langle M \rangle \mid M$ je Turingov stroj taký, že $\vert L(M) \vert \geq 3\}$ je rekurzívne vyčísliteľný
-		
+
 		Poznámka: $\langle M \rangle$ označuje kód Turingovho stroja $M$.
-		
+
 		\item Riadny termín skúšky 2018
-		
+
 		Definujte triedu rekurzívnych a rekurzívne vyčísliteľných jazykov. Ďalej pre každú triedu uveďte jazyk, ktorý do danej triedy patrí, a jazyk, ktorý do triedy nepatrí.
-		
+
 		\item Riadny termín skúšky 2018
-		
+
 		Definujte jazyk $L_{HP}$, ktorý špecifikuje problém zastavenia. Ďalej rozhodnite a dokážte, či existuje rekurzívny jazyk $L$, pre ktorý platí, že $L \leq L_{HP}$ (tj. $L$ sa redukuje na $L_{HP}$).
-		
+
 		\item Riadny termín skúšky 2018
-		
+
 		Pre abecedu $\Sigma = \{a, b\}$ rozhodnite a dokážte, či:
-		
+
 		$L_1 = \{\langle M \rangle \mid M$ je Turingov stroj taký, že $\vert L(M) \vert  > \vert \Sigma \vert\}$ je rekurzívny
-		
+
 		$L_2 = \{\langle M \rangle \mid M$ je Turingov stroj, pre ktorý platí, že $\exists w \in L(M) : \vert w \vert > \vert \langle M \rangle \vert\}$ je rekurzívne vyčísliteľný
-		
+
 		Poznámka: $\langle M \rangle$ označuje reťazec, ktorý kóduje Turingov stroj $M$. V~dôkazoch stačí uviesť hlavnú myšlienku redukcie či konštrukcie požadovaného Turingovho stroja.
 	\end{enumerate}
-	
+
 	\section{Zložitosť}
-	
+
 	\begin{enumerate}
 		\item Riadny termín skúšky 2016
-		
+
 		Rozhodnite a dokážte, či platí:
-		
+
 		$n^3 \notin \mathcal{O}(n^2)$
-		
+
 		$2n^n + 2n + n \in \mathcal{O}(n^2 - 2n - 2)$
-		
+
 		$\{a^nb^nc^n \mid n \geq 0\} \in DTIME[n]$
-		
+
 		\item Riadny termín skúšky 2017
-		
+
 		Definujte formálne časovú zložitosť Turingových strojov a triedu jazykov $DTIME[n^5]$.
-		
+
 		\item Riadny termín skúšky 2017
-		
+
 		Rozhodnite a dokážte, či platí:
-		
+
 		$n^3 \in \mathcal{O}(10n^2 + 100)$
-		
+
 		$10n^2 + 100 \in \mathcal{O}(n^3)$
-		
+
 		\item Riadny termín skúšky 2017
-		
+
 		Rozhodnite a dokážte, či platí:
-		
+
 		$L_1, L_2 \in DTIME[n^3] \xRightarrow[]{} \{ uv \mid u \in  L_1 \land v \in L_2\} \in NTIME[n^3]$
-		
+
 		\item 1. opravný termín skúšky 2017
-		
+
 		Definujte formálne:
-		
+
 		\begin{itemize}
 			\item pre funkciu $f: \mathbb{N} \rightarrow \mathbb{N}$ množinu $\mathcal{O}(f(n))$
 			\item priestorovú zložitosť nedeterministických Turingových strojov
 		\end{itemize}
-	
+
 		\item 1. opravný termín termín skúšky 2017
-		
+
 		Rozhodnite a dokážte, či platí:
-		
+
 		$L \in DTIME[n^4] \xRightarrow[]{} \{ u_1, u_2 \ldots u_k \mid k \geq 1, \forall 1 \leq i \leq k: u_i \in L\} \in NTIME[n^4]$
-		
+
 		\item Riadny termín skúšky 2018
-		
+
 		Formálne definujte:
-		
+
 		\begin{itemize}
 			\item priestorovú zložitosť nedeterministických Turingových strojov, ktorý prijíma jazyk $L$
 			\item asymptotické horné obmedzenie funkcie $f: \mathbb{N} \rightarrow \mathbb{N}$ (tj. $\mathcal{O}(f(n))$
 			\item triedu jazykov $NSPACE[2^n]$
 		\end{itemize}
-	
+
 		\item Riadny termín skúšky 2018
-		
+
 		Pre $\Sigma = \{a,b,c\}$ rozhodnite a dokážte, či platí:
-		
+
 		$L \in DTIME[n^5] \xRightarrow[]{} \{ w \in \Sigma^* \mid \exists w' \in L$ také, že $w'$ je podslovo slova $w\} \in DTIME[n^7]$
 	\end{enumerate}
 
@@ -639,21 +665,21 @@
 
 	\begin{enumerate}
 		\item Riadny termín skúšky 2017
-		
+
 		Definujte formálne, kedy je jazyk NP-úplný a dokážte, že nasledujúci jazyk je NP-úplný:
-		
+
 		$L = \{(\phi_1, \phi_2) \mid \phi_1, \phi_2$ sú výrokové formule v~konjunktívnej normálnej forme, pre ktoré existujú dve rôzne valuácie premenných $v_1$ a $v_2$ také, že $\phi_1(v_1) \neq \phi_2(v_1) \land \phi_1(v_2) \neq \phi_2(v_2)\}$
-		
+
 		Poznámka: $\phi_i(v_i) \in \{true, false\}$ označuje, či je formula $\phi_i$ pravdivá pri valuácií premenných $v_i$.
-		
+
 		\item 1. opravný termín skúšky 2017
-		
+
 		Definujte formálne, kedy je jazyk NP-úplný a dokážte, že nasledujúci jazyk je NP-úplný:
-		
+
 		$L = \{(\phi, n) \mid \phi$ je výroková formula nad premennými $x_1, \ldots, x_k$ v~konjunktívnej normálnej forme, $n \in \mathbb{N_0}$ a naviac platí, že existuje valuácia $v$ premenných $x_1, \ldots, x_k$, ktorá splňuje $\phi$, a pre ktorú platí $E(v) \geq n\}$,
-		
+
 		kde $E(v) \in \mathbb{N}$ značí číslo, ktorého binárny zápis $n_1, \ldots, n_k$ je definovaný nasledovným spôsobom:
-		
+
 		$n_i =
 		\left\{
 		\begin{array}{ll}
@@ -661,103 +687,107 @@
 			1 & \mbox{ak } v(x_i) = false
 		\end{array}
 		\right.$
-		
+
 		\item Riadny termín skúšky 2018
-		
+
 		Definujte formálne, kedy je jazyk NP-úplný. Ďalej uveďte hlavnú myšlienku dôkazu, že jazyk $L$ definovaný nižšie je NP-úplný:
-		
+
 		$L = \{(\phi_1, \phi_2) \mid \phi_1, \phi_2$ sú výrokové formule v~konjunktívnej normálnej forme, pre ktoré existuje valuácia premenných $\vec{v}$ taká, že $\phi_1(\vec{v}) \neq \phi_2(\vec{v})\}$
-		
+
 		Poznámka: $\phi_i(\vec{v}) \in \{true, false\}$ označuje, či je formula $\phi_i$ pravdivá pri valuácií premenných $\vec{v}$.
 	\end{enumerate}
 
 	\section{Vyčíslitelné funkcie}
-	
+
 	\begin{enumerate}
 		\item 1. opravný termín skúšky 2017
-		
+
 		Pomocou počiatočných funkcií a operátorov kombinácie, kompozície a primitívnej rekurzie vyjadrite funkciu:
-		
+
 		$tplus(x,y) = x + 3y$
-		
+
 		Nepoužívajte žiadne ďalšie funkcie zavedené na prednáškach mimo počiatočných funkcií. Nepoužívajte zjednodušenú syntax zápisu funkcií \-- dodržujte presne definičný tvar operátorov kombinácie, kompozície a primitívne rekurzie.
-		
+
 		\item 2. opravný termín skúšky 2017
-		
+
 		Pomocou počiatočných funkcií a operátorov kombinácie, kompozície a primitívnej rekurzie vyjadrite funkciu:
-		
+
 		$tplus(x,y) = 3x + 2y$
-		
+
 		Nepoužívajte žiadne ďalšie funkcie zavedené na prednáškach mimo počiatočných funkcií. Nepoužívajte zjednodušenú syntax zápisu funkcií \-- dodržujte presne definičný tvar operátorov kombinácie, kompozície a primitívne rekurzie.
 	\end{enumerate}
 
 	\section{Petriho siete}
-	
+
 	\begin{enumerate}
 		\item Riadny termín skúšky 2017
-		
+
 		Definujte formálne P/T Petriho siete. V~zhode s~touto definíciou popíšte sieť na obrázku (všetky miesta majú neobmedzenú kapacitu). Ďalej popíšte množinu výpočtových postupností tejto Petriho siete ako jazyk nad množinou jej prechodov.
-		
-		\begin{tikzpicture}[node distance=1cm,>=stealth',,bend angle=45,auto]
-		\node [place,tokens=1,label=below:$P_1$] (p1) {};
-		\node [transition,label=above:$T_1$] (t1) [above= of p1] {}
-		edge[pre]   (p1);
-		\node [transition,label=below:$T_2$] (t2) [right= of p1] {}
-		edge[pre]   (p1);
-		\node [transition] (t2x) [above= of p1] {}
-		edge[post]   (p1);
-		\node [place,label=below:$P_3$] (p3) [right= of t2] {};
-		\node [transition] (t2) [right= of p1] {}
-		edge[post]   (p3);
-		\node [place,label=above:$P_2$] (p2) [right= of t1] {};
-		\node [transition] (t1) [above= of p1] {}
-		edge[post]   (p2);
-		\node [transition,label=above:$T_3$] (t3) [above= of p3] {}
-		edge[pre]   (p2);
-		\node [transition] (t3) [above= of p3] {}
-		edge[pre]   (p3);
-		\node [transition] (t3x) [above= of p3] {}
-		edge[post]   (p3);
-		\end{tikzpicture}
-		
+
+		\begin{center}
+			\begin{tikzpicture}[node distance=1cm,>=stealth',,bend angle=45,auto]
+			\node [place,tokens=1,label=below:$P_1$] (p1) {};
+			\node [transition,label=above:$T_1$] (t1) [above= of p1] {}
+			edge[pre]   (p1);
+			\node [transition,label=below:$T_2$] (t2) [right= of p1] {}
+			edge[pre]   (p1);
+			\node [transition] (t2x) [above= of p1] {}
+			edge[post]   (p1);
+			\node [place,label=below:$P_3$] (p3) [right= of t2] {};
+			\node [transition] (t2) [right= of p1] {}
+			edge[post]   (p3);
+			\node [place,label=above:$P_2$] (p2) [right= of t1] {};
+			\node [transition] (t1) [above= of p1] {}
+			edge[post]   (p2);
+			\node [transition,label=above:$T_3$] (t3) [above= of p3] {}
+			edge[pre]   (p2);
+			\node [transition] (t3) [above= of p3] {}
+			edge[pre]   (p3);
+			\node [transition] (t3x) [above= of p3] {}
+			edge[post]   (p3);
+			\end{tikzpicture}
+		\end{center}
+
 		\item 1. opravný termín skúšky 2017
-		
+
 		Pre P/T Petriho sieť $N = (P,T,F,W,K,M_0)$ definujte formálne:
-		
+
 		\begin{itemize}
 			\item predpis pre výpočet nasledujúceho značenia $M'$ zo značenia $M$ pri prevediteľnom prechode $t$ (tj. platí $M[t\rangle M'$)
 			\item množinu $[M_0\rangle$ dosiahnuteľných značení siete $N$
 			\item (obecnú) prechodovú funkciu $\delta: [M_0\rangle \times T^* \rightarrow [M_0\rangle$
 		\end{itemize}
-	
+
 		\item Riadny termín skúšky 2018
-		
+
 		Definujte formálne P/T Petriho siete. V~zhode s~touto definíciou popíšte sieť na obrázku (všetky miesta majú neobmedzenú kapacitu). Ďalej zapíšte prevediteľnú postupnosť prechodov a odpovedajúcich značení, v~ktorej sa vyskytujú všetky prechody (použite zavedenú notáciu $M[t\rangle M'$).
-		
-		\begin{tikzpicture}[node distance=1cm,>=stealth',bend angle=45,auto]
-		\node [place,tokens=1,label=below:$P_1$] (p1) {};
-		\node [transition,label=below:$T_1$] (t1) [right= of p1] {}
-		edge[pre]   (p1);
-		\node [transition] (t1x) [right= of p1] {}
-		edge[post]   (p1);
-		\node [place,label=right:$P_2$] (p2) [above right= of t1]{};
-		\node [transition] (t1) [right= of p1] {}
-		edge[post, bend right]   (p2);
-		\node [transition,label=above:$T_2$] (t2) [above left= of p2] {}
-		edge[pre, bend left] node {3} (p2);
-		\node [transition] (t2) [above left= of p2] {}
-		edge[pre, bend left] node {3} (p2);
-		\node [transition] (t2) [above left= of p2] {}
-		edge[pre, bend right] (p1);
-		\node [place,tokens=3,label=above:$P_3$] (p3) [left= of t2]{};
-		\node [transition] (t2x) [right= of p3] {}
-		edge[post]  node[swap] {3} (p3);
-		\node [transition,label=left:$T_3$] (t3) [above left= of p1] {}
-		edge[pre, bend left] node {6} (p3);
-		\node [transition] (t3x) [above left= of p1] {}
-		edge[post, bend right] (p1);
-		\end{tikzpicture}
-		
+
+		\begin{center}
+			\begin{tikzpicture}[node distance=1cm,>=stealth',bend angle=45,auto]
+			\node [place,tokens=1,label=below:$P_1$] (p1) {};
+			\node [transition,label=below:$T_1$] (t1) [right= of p1] {}
+			edge[pre]   (p1);
+			\node [transition] (t1x) [right= of p1] {}
+			edge[post]   (p1);
+			\node [place,label=right:$P_2$] (p2) [above right= of t1]{};
+			\node [transition] (t1) [right= of p1] {}
+			edge[post, bend right]   (p2);
+			\node [transition,label=above:$T_2$] (t2) [above left= of p2] {}
+			edge[pre, bend left] node {3} (p2);
+			\node [transition] (t2) [above left= of p2] {}
+			edge[pre, bend left] node {3} (p2);
+			\node [transition] (t2) [above left= of p2] {}
+			edge[pre, bend right] (p1);
+			\node [place,tokens=3,label=above:$P_3$] (p3) [left= of t2]{};
+			\node [transition] (t2x) [right= of p3] {}
+			edge[post]  node[swap] {3} (p3);
+			\node [transition,label=left:$T_3$] (t3) [above left= of p1] {}
+			edge[pre, bend left] node {6} (p3);
+			\node [transition] (t3x) [above left= of p1] {}
+			edge[post, bend right] (p1);
+			\end{tikzpicture}
+		\end{center}
+
 	\end{enumerate}
 
 \end{document}

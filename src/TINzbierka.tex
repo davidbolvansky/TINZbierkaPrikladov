@@ -502,6 +502,12 @@
 
 			\item Zostrojte a formálne zapíšte deterministický Turingov stroj $M$ o~najviac 4 stavoch a 4 prechodoch tak, aby platilo $(q_0, \Delta a^i\Delta^w, 0) {\vdash^*}_M (q_f, \Delta b^i\Delta^w, n)$, kde i,n $\geq$ 0.
 		\end{enumerate}
+	
+		\subsection{1. opravný termín skúšky 2018}
+	
+		\begin{enumerate}
+			\item Pre NTS $M = (Q, \Sigma, \Gamma, \delta, q_0, q_f)$ formálne definujte tvar prechodovej funkcie $\delta$. Rozhodnite a dokážte, či pre každý NTS $M$ existuje DTS $M'$ taký, že $L(M) = L(M')$.
+		\end{enumerate}
 
 	\section{Diagonalizácia}
 	
@@ -608,6 +614,24 @@
 	
 			Poznámka: $\langle M \rangle$ označuje reťazec, ktorý kóduje Turingov stroj $M$. V~dôkazoch stačí uviesť hlavnú myšlienku redukcie či konštrukcie požadovaného Turingovho stroja.
 		\end{enumerate}	
+	
+		\subsection{1. opravný termín skúšky 2018}
+		
+		\begin{enumerate}
+			\item Rozhodnite a dokážte, či platí:
+			\begin{itemize}
+				\item Pre ľubovoľné dva rekurzívne jazyky $L_1$ a $L_2$ platí, že $L_1 \geq L_2$.
+				\item Pre ľubovoľné dva neregulárne rekurzívne jazyky $L_1$ a $L_2$ platí, že $L_1 \geq L_2$.
+			\end{itemize}
+		
+			\item Pre abecedu $\Sigma = \{a, b, c\}$ rozhodnite a dokážte, či:
+			
+			$L_1 = \{\langle M_1 \rangle \# \langle M_2 \rangle \mid M_1$ a $M_2$  sú TS také, že $L(M_1) \setminus L(M_2) = \{a\}\}$ je rekurzívny
+			
+			$L_2 = \{\langle M_1 \rangle \# \langle M_2 \rangle \mid M_1$ a $M_2$  sú TS také, že $L(M_1) \cap L(M_2) \neq \emptyset\}$ je rekurzívne vyčísliteľný
+			
+			Poznámka: $\langle M \rangle$ označuje reťazec, ktorý kóduje Turingov stroj $M$. V~dôkazoch stačí uviesť hlavnú myšlienku redukcie či konštrukcie požadovaného Turingovho stroja.
+		\end{enumerate}	
 
 	\section{Zložitosť}
 
@@ -670,6 +694,18 @@
 	
 			$L \in DTIME[n^5] \xRightarrow[]{} \{ w \in \Sigma^* \mid \exists w' \in L$ také, že $w'$ je podslovo slova $w\} \in DTIME[n^7]$
 		\end{enumerate}	
+	
+		\subsection{1. opravný termín skúšky 2018}
+		
+		\begin{enumerate}
+			\item Formálne definujte časovú zložitosť DTS prijímajúceho jazyk $L$ a triedu zložitosti $P$. Rozhodnite a dokážte, či je trieda zložitosti $P$ uzavrená vzhľadom k~unárnej operácii $\Diamond$ definovanej nasledovne:
+			
+			$\Diamond L = \{w \in L \mid w = a^nb^nc^n \land n > 0\}$
+			
+			\item Formálne definujte pojem polynomiálnej redukcie jazyka $L_1$ na jazyk $L_2$. Označme túto redukciu ako $L_1 \geq_p L_2$. Rozhodnite a dokážte, či platí:
+			
+			$\exists L \in P: \forall L' \in NP: L' \geq_p L \xRightarrow[]{} P = NP$
+		\end{enumerate}
 
 	\section{NP problémy, polynomiálna redukcia}
 
@@ -732,6 +768,19 @@
 	
 			Nepoužívajte žiadne ďalšie funkcie zavedené na prednáškach mimo počiatočných funkcií. Nepoužívajte zjednodušenú syntax zápisu funkcií \-- dodržujte presne definičný tvar operátorov kombinácie, kompozície a primitívne rekurzie.
 		\end{enumerate}	
+	
+		\subsection{1. opravný termín skúšky 2018}
+		
+		\begin{enumerate}
+			\item Nech $a \in \mathbb{N}$ a $h: \mathbb{N}^2 \rightarrow \mathbb{N}$ je totálna turingovsky vyčísliteľná funkcia. Uvážme funkciu $f: \mathbb{N} \rightarrow \mathbb{N}$ definovanú pomocou primitívnej rekurzívnej funkcie nasledovne:
+			
+			$f(0) = a$
+			
+			$f(x+1) = h(x, f(x))$
+			
+			Dokážte, že $f$ je totálna turingovsky vyčísliteľná funkcia (stačí zostrojiť TS, ktorý vyčísluje $f$).
+			
+		\end{enumerate}	
 
 	\section{Petriho siete}
 
@@ -741,7 +790,7 @@
 			\item Definujte formálne P/T Petriho siete. V~zhode s~touto definíciou popíšte sieť na obrázku (všetky miesta majú neobmedzenú kapacitu). Ďalej popíšte množinu výpočtových postupností tejto Petriho siete ako jazyk nad množinou jej prechodov.
 
 			\begin{center}
-				\begin{tikzpicture}[node distance=1cm,>=stealth',,bend angle=45,auto]
+				\begin{tikzpicture}[node distance=2cm,>=stealth',bend angle=45,auto]
 				\node [place,tokens=1,label=below:$P_1$] (p1) {};
 				\node [transition,label=above:$T_1$] (t1) [above= of p1] {}
 				edge[pre]   (p1);
@@ -783,7 +832,7 @@
 			\item Definujte formálne P/T Petriho siete. V~zhode s~touto definíciou popíšte sieť na obrázku (všetky miesta majú neobmedzenú kapacitu). Ďalej zapíšte prevediteľnú postupnosť prechodov a odpovedajúcich značení, v~ktorej sa vyskytujú všetky prechody (použite zavedenú notáciu $M[t\rangle M'$).
 
 			\begin{center}
-				\begin{tikzpicture}[node distance=1cm,>=stealth',bend angle=45,auto]
+				\begin{tikzpicture}[node distance=2cm,>=stealth',bend angle=45,auto]
 				\node [place,tokens=1,label=below:$P_1$] (p1) {};
 				\node [transition,label=below:$T_1$] (t1) [right= of p1] {}
 				edge[pre]   (p1);
@@ -808,5 +857,39 @@
 				\end{tikzpicture}
 			\end{center}
 		\end{enumerate}	
+	
+		\subsection{1. opravný termín skúšky 2018}
+		
+		\begin{enumerate}
+			\item Pre P/T Petriho sieť $N = (P,T,F,W,K,M_0)$ definujte formálne:
+			
+			\begin{itemize}
+				\item prevediteľný prechod a pravidlá pre výpočet nasledujúceho značenia
+				\item množinu dosiahnuteľných značení siete $N$ zo značenia $M_0$
+			\end{itemize}
+		\end{enumerate}	
+	
+		Ďalej popíšte množinu dosiahnuteľných značení uvedenej Petriho siete:
+		
+		\begin{center}
+			\begin{tikzpicture}[node distance=2cm,>=stealth',bend angle=45,auto]
+			\node [place,tokens=2,label=left:$P_1$] (p1) {};
+			\node [transition,label=below:$T_2$] (t2) [right= of p1] {}
+			edge[post]  node[swap] {2} (p1);
+			\node [transition,label=above:$T_1$] (t1) [above= of t2] {}
+			edge[pre]   (p1);
+			\node [transition,label=below:$T_3$] (t3) [below= of t2] {}
+			edge[pre]   (p1);
+			\node [place,label=right:$P_2$] (p2) [right= of t2]{};
+			\node [transition] (t2x) [right= of p1] {}
+			edge[pre] node {8}  (p2);
+			\node [transition] (t2x) [above= of t2] {}
+			edge[post] node {2} (p2);
+			\node [transition] (t3x) [below= of t2] {}
+			edge[post] node[swap] {4} (p2);
+			\end{tikzpicture}
+		\end{center}
+		
+		
 
 \end{document}

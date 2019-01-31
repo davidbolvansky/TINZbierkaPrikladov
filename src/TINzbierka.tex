@@ -204,6 +204,22 @@
 	
 			 Poznámka: nedoporučuje se použitie Pumping Lemma.
 		\end{enumerate}
+	
+		\subsection{2. opravný termín skúšky 2018}
+		
+		\begin{enumerate}
+			\item Formálne definujte pojem regulárne množiny a regulárneho výrazu. Pre jazyk:
+			
+			$L = \{w \in \{a,b\}^* \mid \#_a(w)$ mod $2 = 1\}$
+			
+			kde $\#_x(w)$ označuje počet znakov $x$ v~reťazci $w$ a $mod$ značí operáciu modulo, zostrojte konečný automat $A$, pre ktorý platí $L(A) = L$. Ďalej pre $A$ zostavte príslušnú sústavu rovníc nad regulárnymi výrazmi, ktorej riešením  je regulárny jazyk popisujúci jazyk $L$. Túto sústavu vyriešte a určite regulárny výraz $E$ taký, že $L(E) = L$.
+			
+			\item Zapíšte presne a formálne Pumping Lemma pre regulárne jazyky. Použite Pumping Lemma k~dôkazu, že jazyk
+			
+			$L = \{a^nbc^m \mid n > m > 0\}$
+			
+			nie je regulárny.
+		\end{enumerate}
 
 	\section{Bezkontextové jazyky}
 
@@ -292,7 +308,7 @@
 	
 			Zostroje (systematickým postupom z~prednášky) a formálne zapíšte zásobníkový automat $M$ taký, že $L(G) = L(M)$, ktorý modeluje syntaktickú analýzu zhora nadol.
 	
-			Zapíšte postupnosť konfigurácii stroje $M$ pre vstupný reťazec $bbaab$.
+			Zapíšte postupnosť konfigurácii stroja $M$ pre vstupný reťazec $bbaab$.
 	
 			\item Rozhodnite a dokážte, či je nasledujúci jazyk bezkontextový.
 	
@@ -330,6 +346,23 @@
 			\item Formálne definujte reláciu prechodu u~DZA. Zostrojte DZA, ktorý akceptuje jazyk:
 	
 			$L = \{w \in \{a,b,c\}^* \mid \forall u \in \{a,b,c\}^*$ platí, že ak je $u$ prefix $w$, potom $\#a(u) \geq \#b(u)\}$
+		\end{enumerate}
+	
+		\subsection{2. opravný termín skúšky 2018}
+		
+		\begin{enumerate}
+			\item Formálne definujte nedeterministický zásobníkový automat, jeho konfiguráciu, reláciu prechodu medzi konfiguráciami a jazyk prijímaný týmto automatom. Ďalej zapíšte bezkontextový jazyk, ktorý nie je deterministickým bezkontextovým jazykom (požadované vlastnosti jazyka nemusíte dokazovať).
+			\item Uvažujme gramatiku $G = (\{S,A,B\}, \{a,b\}, P, S)$ s~pravidlami $P$:
+			
+			$S \rightarrow aSB \mid ASB \mid aa$
+			
+			$A \rightarrow aAa \mid B$
+			
+			$B \rightarrow bb \mid A$
+			
+			Zostroje (systematickým postupom z~prednášky) a formálne zapíšte zásobníkový automat $M$ taký, že $L(G) = L(M)$, ktorý modeluje syntaktickú analýzu zhora nadol.
+			
+			Zapíšte postupnosť konfigurácii stroja $M$ pre vstupný reťazec $bbaab$.
 		\end{enumerate}
 
 	\section{Algoritmy}
@@ -486,6 +519,26 @@
 
 			$\forall L_1, L_2 \in \mathcal{L}_{CK}$ je jazyk $L_1 \cdot L_2$ regulárny
 		\end{enumerate}
+	
+		\subsection{2. opravný termín skúšky 2018}
+		
+		\begin{enumerate}
+			\item Nech $\mathcal{L}_{2}$ značí triedu bezkontextových jazykov a $\mathcal{L}_{3}$ triedu regulárnych jazykov. Rozhodnite a dokážte, či platí nasledovné tvrdenia:
+			
+			\begin{itemize}
+				\item $\exists L_a \in \mathcal{L}_3: \forall L_b \in \mathcal{L}_2: L_a \setminus L_b \in \mathcal{L}_3$
+				\item Problém univerzality jazyka konečného automatu $A$ (tj. či $L(A) = \Sigma^*$ pre danú abecedu $\Sigma$) je rozhodnuteľný.
+				\item $\exists L \in \mathcal{L}_3$ taký, že redukovaný konečný automat $A$ s~$L(A) = L$ má aspoň  stavy.
+			\end{itemize}
+		
+			\item Nech $\mathcal{L}_{2}$ značí triedu bezkontextových jazykov a $\mathcal{L}_{3}$ triedu regulárnych jazykov. Rozhodnite a dokážte, či platí nasledovné tvrdenia:
+			
+			\begin{itemize}
+				\item Pre $\Sigma = \{0,1,2\}$ platí, že $\exists L_a, L_b \in \mathcal{L}_2 \setminus \mathcal{L}_3: L_a \cap L_b$ nie je konečný a zároveň $L_a \cap L_b \in \mathcal{L}_3$.
+				\item Problém prázdnosti jazyka bezkontextovej gramatiky je rozhodnuteľný.
+				\item Pre všetky $L_a, L_b \in \mathcal{L}_2$ platí, že $L_a \cup L_b$ je konečný $\xRightarrow{}$ $L_a \cap L_b \in \mathcal{L}_2$.
+			\end{itemize}	
+		\end{enumerate}
 
 	\section{Turingove stroje}
 
@@ -506,16 +559,16 @@
 		\subsection{1. opravný termín skúšky 2018}
 	
 		\begin{enumerate}
-			\item Pre NTS $M = (Q, \Sigma, \Gamma, \delta, q_0, q_f)$ formálne definujte tvar prechodovej funkcie $\delta$. Rozhodnite a dokážte, či pre každý NTS $M$ existuje DTS $M'$ taký, že $L(M) = L(M')$.
+			\item Pre nedeterministický Turingov stroj $M = (Q, \Sigma, \Gamma, \delta, q_0, q_f)$ formálne definujte tvar prechodovej funkcie $\delta$. Rozhodnite a dokážte, či pre každý NTS $M$ existuje DTS $M'$ taký, že $L(M) = L(M')$.
+		\end{enumerate}
+		
+		\subsection{2. opravný termín skúšky 2018}
+		
+		\begin{enumerate}
+			\item Pre nedeterministický Turingov stroj $M = (Q, \Sigma, \Gamma, \delta, q_0, q_f)$ formálne definujte tvar prechodovej funkcie $\delta$. Ďalej rozhodnite a dokážte, či existuje rekurzívne vyčísliteľný jazyk $L$ taký, že $L$ nie je rekurzívny a zároveň komplement jazyka $L$ je rekurzívne vyčísliteľný.
 		\end{enumerate}
 
 	\section{Diagonalizácia}
-	
-		\subsection{Riadny termín skúšky 2016}
-		
-		\begin{enumerate}
-			\item  Dokážte, že existuje totálna funkcia $f: \mathbb{N} \rightarrow \mathbb{N}$, ktorá nie je primitívne rekurzívna.
-		\end{enumerate}
 	
 		\subsection{1. opravný termín skúšky 2016}
 		
@@ -527,6 +580,12 @@
 
 		\begin{enumerate}
 			\item Pomocou techniky diagonalizácie dokážte, že existuje jazyk, ktorý nie je rekurzívne vyčísliteľný.
+		\end{enumerate}
+	
+		\subsection{2. opravný termín skúšky 2018}
+		
+		\begin{enumerate}
+			\item  Diagonalizáciou dokážte, že existuje totálna funkcia $f: \mathbb{N} \rightarrow \mathbb{N}$, ktorá nie je primitívne rekurzívna. V~dôkaze sa mimo iné pokúste argumentovať, prečo je možné enumerovať (tj. usporiadať do nejakej postupnosti) primitívne rekurzívne funkcie.
 		\end{enumerate}
 	
 	\section{Redukcie, rekurzívne a rekurzívne vyčísliteľné jazyky}
@@ -626,11 +685,27 @@
 		
 			\item Pre abecedu $\Sigma = \{a, b, c\}$ rozhodnite a dokážte, či:
 			
-			$L_1 = \{\langle M_1 \rangle \# \langle M_2 \rangle \mid M_1$ a $M_2$  sú TS také, že $L(M_1) \setminus L(M_2) = \{a\}\}$ je rekurzívny
+			$L_1 = \{\langle M_1 \rangle \# \langle M_2 \rangle \mid M_1$ a $M_2$  sú Turingove stroje také, že $L(M_1) \setminus L(M_2) = \{a\}\}$ je rekurzívny
 			
-			$L_2 = \{\langle M_1 \rangle \# \langle M_2 \rangle \mid M_1$ a $M_2$  sú TS také, že $L(M_1) \cap L(M_2) \neq \emptyset\}$ je rekurzívne vyčísliteľný
+			$L_2 = \{\langle M_1 \rangle \# \langle M_2 \rangle \mid M_1$ a $M_2$  sú Turingove stroje také, že $L(M_1) \cap L(M_2) \neq \emptyset\}$ je rekurzívne vyčísliteľný
 			
 			Poznámka: $\langle M \rangle$ označuje reťazec, ktorý kóduje Turingov stroj $M$. V~dôkazoch stačí uviesť hlavnú myšlienku redukcie či konštrukcie požadovaného Turingovho stroja.
+		\end{enumerate}	
+	
+		\subsection{2. opravný termín skúšky 2018}
+		
+		\begin{enumerate}
+			\item Formálne definujte pojem redukcie jazyka $L_1$ na jazyk $L_2$. Označme túto redukciu ako $L_1 \geq L_2$. Rozhodnite a dokážte, či $\{0^n\#1^n \mid n > 0\} \geq L_{MP}$, kde $L_{MP}$ špecifikuje problém náležitosti (Membership problem) pre Turingove stroje.
+		
+			Poznámka: V~dôkaze sa vyžadujú hlavné kroky konštrukcie požadovanej redukcie alebo dôkaz, že taká redukcia nemôže existovať.
+			
+			\item Pre abecedu $\Sigma = \{a, b, c\}$ rozhodnite a dokážte, či:
+			
+			$L_1 = \{\langle M_1 \rangle \# \langle M_2 \rangle \mid M_1$ a $M_2$  sú Turingove stroje také, že $L(M_1) \cdot L(M_2) = \{ab\}\}$ je rekurzívny
+			
+			$L_2 = \{\langle M \rangle \mid M$ je Turingov stroj, pre ktorý existuje $w \in \Sigma^*$, ktoré $M$ akceptuje do 9 krokov$\}$ je rekurzívny
+			
+			Poznámka: $\langle M \rangle$ označuje reťazec, ktorý kóduje Turingov stroj $M$. V~dôkazoch stačí uviesť hlavnú myšlienku redukcie či konštrukcie požadovaného Turingovho stroja. V~prípade redukcie je možné použiť redukciu z~Halting problemu.
 		\end{enumerate}	
 
 	\section{Zložitosť}
@@ -745,6 +820,21 @@
 			$L = \{(\phi_1, \phi_2) \mid \phi_1, \phi_2$ sú výrokové formule v~konjunktívnej normálnej forme, pre ktoré existuje valuácia premenných $\vec{v}$ taká, že $\phi_1(\vec{v}) \neq \phi_2(\vec{v})\}$
 	
 			Poznámka: $\phi_i(\vec{v}) \in \{true, false\}$ označuje, či je formula $\phi_i$ pravdivá pri valuácií premenných $\vec{v}$.
+		\end{enumerate}	
+	
+		\subsection{2. opravný termín skúšky 2018}
+		
+		\begin{enumerate}
+			\item Formálne definujte asymptotické horné obmedzenie funkcie $f: \mathbb{N} \rightarrow \mathbb{N}$ (tj. $\mathcal{O}(f(n))$ a rozhodnite a dokážte, či platí:
+			
+			\begin{itemize}
+				\item $n^3 \in \mathcal{O}(10n^2 + 100)$
+				\item $10n^2 + 100 \in \mathcal{O}(n^3)$
+			\end{itemize}
+		
+			\item Definujte formálne, kedy je jazyk NP-úplný. Ďalej rozhodnite a dokážte, či platí:
+			
+			$L_1, L_2 \in DTIME[n^5] \xRightarrow[]{} \{ uv \mid u \in  L_1 \land v \in L_2\} \in NTIME[n^5]$
 		\end{enumerate}	
 
 	\section{Vyčíslitelné funkcie}
@@ -889,6 +979,12 @@
 			edge[post] node[swap] {4} (p2);
 			\end{tikzpicture}
 		\end{center}
+	
+		\subsection{2. opravný termín skúšky 2018}
+		
+		\begin{enumerate}
+			\item Zostrojte P/T Petriho, ktorá ma 2 miesta, počiatočné značenie $M_0 = (0,1)$ a má nekonečnú množinu $(M_1,M_2, \cdots)$ značení dosiahnuteľných z~$M_0$, pre ktorú platí, že $\forall i > 0, M_i = (m_i,n_i)$, kde $m_i = 1$ a $n_i$ je párne (sudé). Uveďte grafickú reprezentáciu tejto siete a popíšte ju v~zhode s~matematickou definíciou P/T Petriho sietí.
+		\end{enumerate}	
 		
 		
 

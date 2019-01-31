@@ -300,7 +300,7 @@
 		\begin{enumerate}
 			\item Uvažujme gramatiku $G = (\{S,A,B\}, \{a,b\}, P, S)$ s~pravidlami $P$:
 
-			$S \rightarrow aSB \mid ASB \mid aa$
+			$S \rightarrow aSB \mid ASb \mid aa$
 	
 			$A \rightarrow aAa \mid B$
 	
@@ -352,9 +352,9 @@
 		
 		\begin{enumerate}
 			\item Formálne definujte nedeterministický zásobníkový automat, jeho konfiguráciu, reláciu prechodu medzi konfiguráciami a jazyk prijímaný týmto automatom. Ďalej zapíšte bezkontextový jazyk, ktorý nie je deterministickým bezkontextovým jazykom (požadované vlastnosti jazyka nemusíte dokazovať).
-			\item Uvažujme gramatiku $G = (\{S,A,B\}, \{a,b\}, P, S)$ s~pravidlami $P$:
+			\item Uvažujme gramatiku $G = (\{S,A,B\}, \{a,b\}, P, S)$ s~pravidlami:
 			
-			$S \rightarrow aSB \mid ASB \mid aa$
+			$S \rightarrow aSB \mid ASb \mid aa$
 			
 			$A \rightarrow aAa \mid B$
 			
@@ -362,7 +362,7 @@
 			
 			Zostroje (systematickým postupom z~prednášky) a formálne zapíšte zásobníkový automat $M$ taký, že $L(G) = L(M)$, ktorý modeluje syntaktickú analýzu zhora nadol.
 			
-			Zapíšte postupnosť konfigurácii stroja $M$ pre vstupný reťazec $bbaab$.
+			Zapíšte postupnosť konfigurácii stroja $M$ pre vstupný reťazec $bbaab$, ktorá vedie k~akceptovaniu tohto reťazca.
 		\end{enumerate}
 
 	\section{Algoritmy}
@@ -781,6 +781,21 @@
 			
 			$\exists L \in P: \forall L' \in NP: L' \geq_p L \xRightarrow[]{} P = NP$
 		\end{enumerate}
+	
+				\subsection{2. opravný termín skúšky 2018}
+		
+		\begin{enumerate}
+			\item Formálne definujte asymptotické horné obmedzenie funkcie $f: \mathbb{N} \rightarrow \mathbb{N}$ (tj. $\mathcal{O}(f(n))$ a rozhodnite a dokážte, či platí:
+			
+			\begin{itemize}
+				\item $n^3 \in \mathcal{O}(10n^2 + 100)$
+				\item $10n^2 + 100 \in \mathcal{O}(n^3)$
+			\end{itemize}
+			
+			\item Definujte formálne, kedy je jazyk NP-úplný. Ďalej rozhodnite a dokážte, či platí:
+			
+			$L_1, L_2 \in DTIME[n^5] \xRightarrow[]{} \{ uv \mid u \in  L_1 \land v \in L_2\} \in NTIME[n^5]$
+		\end{enumerate}	
 
 	\section{NP problémy, polynomiálna redukcia}
 
@@ -820,22 +835,7 @@
 			$L = \{(\phi_1, \phi_2) \mid \phi_1, \phi_2$ sú výrokové formule v~konjunktívnej normálnej forme, pre ktoré existuje valuácia premenných $\vec{v}$ taká, že $\phi_1(\vec{v}) \neq \phi_2(\vec{v})\}$
 	
 			Poznámka: $\phi_i(\vec{v}) \in \{true, false\}$ označuje, či je formula $\phi_i$ pravdivá pri valuácií premenných $\vec{v}$.
-		\end{enumerate}	
-	
-		\subsection{2. opravný termín skúšky 2018}
-		
-		\begin{enumerate}
-			\item Formálne definujte asymptotické horné obmedzenie funkcie $f: \mathbb{N} \rightarrow \mathbb{N}$ (tj. $\mathcal{O}(f(n))$ a rozhodnite a dokážte, či platí:
-			
-			\begin{itemize}
-				\item $n^3 \in \mathcal{O}(10n^2 + 100)$
-				\item $10n^2 + 100 \in \mathcal{O}(n^3)$
-			\end{itemize}
-		
-			\item Definujte formálne, kedy je jazyk NP-úplný. Ďalej rozhodnite a dokážte, či platí:
-			
-			$L_1, L_2 \in DTIME[n^5] \xRightarrow[]{} \{ uv \mid u \in  L_1 \land v \in L_2\} \in NTIME[n^5]$
-		\end{enumerate}	
+		\end{enumerate}
 
 	\section{Vyčíslitelné funkcie}
 
